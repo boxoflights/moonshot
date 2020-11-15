@@ -4,7 +4,7 @@
 [ext_resource path="res://Enemy.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=38]
-radius = 12.1655
+radius = 6.7082
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -182,7 +182,7 @@ shape = SubResource( 38 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 37 )
 animation = "idle_left"
-frame = 1
+frame = 3
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
