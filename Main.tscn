@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://paralax.background.png" type="Texture" id=1]
 [ext_resource path="res://paralax.midground.png" type="Texture" id=2]
@@ -8,14 +8,10 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Lazer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Main.gd" type="Script" id=8]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -4, -6 )
 script = ExtResource( 8 )
-
-[node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 172, 22 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -180, -114 )

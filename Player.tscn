@@ -211,7 +211,7 @@ color_ramp = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 36 )
 animation = "walk_left"
-frame = 4
+frame = 1
 playing = true
 
 [node name="MuzzleLeft" type="Position2D" parent="."]
