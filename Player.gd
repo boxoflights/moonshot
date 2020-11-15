@@ -16,7 +16,9 @@ onready var jet_right = get_node("JetRight")
 var velocity = Vector2()
 var dir = "right"
 var fire_cooldown_timer = 0
-var jet_impulse_timer = 0
+var jet_impulse_timer = 8
+
+var jetpack_on = false
 
 func get_input(delta):	
 	
@@ -35,19 +37,25 @@ func get_input(delta):
 		
 	if Input.is_action_pressed("jet_impulse"):
 		if jet_impulse_timer > 0:
+			if(!jetpack_on):
+				$SFX/JetIntro.play()
+			jetpack_on = true
 			jet_impulse_timer -= delta
 			jet_left.emitting = true
 			jet_right.emitting = true
 			velocity.y -= GRAVITY + jet_speed	
 	else:
+		if(jetpack_on):
+			$SFX/Tween.interpolate_property($SFX/JetLoop,"volume_db",$SFX/JetLoop.volume_db,-90,0.5)
+			$SFX/Tween.interpolate_callback($SFX/JetLoop,0.5,"stop")
+			$SFX/Tween.start()
+		jetpack_on = false
 		if jet_impulse_timer < jet_impulse_time:
 			jet_impulse_timer += delta
 			if jet_impulse_timer > jet_impulse_time:
 				jet_impulse_timer = jet_impulse_time
-			
 		jet_left.emitting = false
 		jet_right.emitting = false
-		
 	if velocity.y < 0:
 		anim = "jet"
 	elif velocity.x == 0:
@@ -77,3 +85,9 @@ func get_input(delta):
 func _physics_process(delta):
 	get_input(delta)
 	move_and_slide(velocity, Vector2(0, -1))
+
+
+func _on_JetIntro_finished():
+	if(jetpack_on):
+		$SFX/JetLoop.volume_db = 0
+		$SFX/JetLoop.play()
