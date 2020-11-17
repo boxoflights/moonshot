@@ -2,32 +2,41 @@ extends "res://Enemy.gd"
 
 export (PackedScene) var Beam
 
+var charging = false
+var firing = false
 var beam = null
-var beam_length = 0
 
 func sees_player(delta, player_direction):
 	speed = 0
-	direction = player_direction.normalized()
-	anim = "beam"
-	if beam_length < 128:
-		beam_length+=128 * delta
+	direction = player_direction.normalized()	
 	
-	if beam == null:
-		beam = Beam.instance()
-		owner.add_child(beam)
-		beam.transform = global_transform
-	
-	beam.fire(direction, beam_length)
+	if firing:
+		anim = "beam"	
+		
+		if beam == null:
+			beam = Beam.instance()
+			add_child(beam)		
+			
+		beam.direction = direction
+		if direction.x > 0:
+			beam.position = $beam_right.position
+		else:
+			beam.position = $beam_left.position
+		
+	elif !charging:
+		charging = true
+		anim = "beam_start"
+		
 
 func idle(delta):
-	if beam_length > 0:
-		beam_length-=128 * delta
-		beam.retract(direction, 128 - beam_length)
-	elif beam != null:
-		beam.queue_free()
+	if beam && beam.firing:
+		firing = false
+		beam.firing = false
 		beam = null
-	else:
-		.idle(delta)
+	
+	charging = false
+	.idle(delta)
 
 func _on_AnimatedSprite_animation_finished():
-	pass # Replace with function body.
+	if $AnimatedSprite.animation.begins_with("beam_start"):
+		firing = true

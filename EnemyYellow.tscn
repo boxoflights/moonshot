@@ -345,4 +345,10 @@ Beam = ExtResource( 3 )
 frames = SubResource( 73 )
 animation = "beam_left"
 frame = 0
+
+[node name="beam_left" type="Position2D" parent="." index="3"]
+position = Vector2( -3, 0 )
+
+[node name="beam_right" type="Position2D" parent="." index="4"]
+position = Vector2( 3, 0 )
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

@@ -5,7 +5,7 @@ export (int) var swoop_speed = 24
 export (int) var view_dist = 64
 export (int) var field_of_view = 180
 
-var direction = Vector2.LEFT
+var direction = Vector2.ZERO
 var speed = move_speed
 var anim = "idle"
 var idle_timer = 2
@@ -15,7 +15,8 @@ func can_see_player():
 	if p:
 		var player_direction = p.position - position
 		if player_direction.length() < view_dist:
-			if acos(player_direction.normalized().dot(direction)) < field_of_view:
+			var angle = acos(player_direction.normalized().dot(direction))
+			if  rad2deg(angle) < field_of_view:
 				$RayCast2D.cast_to = player_direction
 				if $RayCast2D.is_colliding():
 					if $RayCast2D.get_collider() == p:
