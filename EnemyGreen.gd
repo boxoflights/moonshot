@@ -19,12 +19,6 @@ func drop():
 		acid.transform = global_transform
 		drop_timer = drop_time
 
-func idle(delta):
-	#drop()
-	
-	#.idle(delta)
-	pass
-
 func _physics_process(delta):
 	if drop_timer > 0:
 		drop_timer -= delta
