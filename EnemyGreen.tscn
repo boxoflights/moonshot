@@ -172,10 +172,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Enemy" instance=ExtResource( 1 )]
+[node name="EnemyGreen" groups=[
+"mobs",
+] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+view_dist = 256
 Acid = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 37 )
-frame = 0
+frame = 4
