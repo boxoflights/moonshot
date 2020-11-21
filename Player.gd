@@ -17,8 +17,26 @@ var velocity = Vector2()
 var dir = "right"
 var fire_cooldown_timer = 0
 var jet_impulse_timer = 8
+var health = 100
+var lives = 3
+var has_item = false
+var items_returned = 0
 
 var jetpack_on = false
+
+var knocked = null
+var knock = 0
+var flicker = false
+
+func get_jetpack_percent():
+	return (jet_impulse_time / 100) * jet_impulse_timer
+	
+func get_fire_percent():
+	return (fire_cooldown_time / 100) * fire_cooldown_timer
+
+func knock_back(knocked_direction):
+	knock = 0.5
+	knocked = knocked_direction
 
 func get_input(delta):	
 	
@@ -27,14 +45,14 @@ func get_input(delta):
 	var anim = "walk"
 	
 	if Input.is_action_pressed('move_right'):
-		dir = "right"		
+		dir = "right"
 		velocity.x = walk_speed
 	elif Input.is_action_pressed('move_left'):
-		dir = "left"		
+		dir = "left"
 		velocity.x = -walk_speed
-	else:					
+	else:
 		velocity.x = 0
-		
+	
 	if Input.is_action_pressed("jet_impulse"):
 		if jet_impulse_timer > 0:
 			if(!jetpack_on):
@@ -56,11 +74,12 @@ func get_input(delta):
 				jet_impulse_timer = jet_impulse_time
 		jet_left.emitting = false
 		jet_right.emitting = false
+	
 	if velocity.y < 0:
 		anim = "jet"
 	elif velocity.x == 0:
 		anim = "idle"
-		
+	
 	sprite.play(anim + "_" + dir)
 	
 	if fire_cooldown_timer > 0:
@@ -77,15 +96,26 @@ func get_input(delta):
 				lazer.direction = -1
 				lazer.transform = $MuzzleLeft.global_transform
 				lazer.rotation_degrees = 180
-				
-				
 			fire_cooldown_timer = fire_cooldown_time
-		
+	
+	if knock > 0:
+		velocity += knocked * 64
+		knock -= delta
+		if flicker:
+			$AnimatedSprite.modulate = Color(10, 10, 10)
+		else:
+			$AnimatedSprite.modulate = Color(0, 0, 0)
+			
+		flicker = !flicker
+	elif knocked != null:
+		$AnimatedSprite.modulate = Color(1, 1, 1)
+		knock = 0
+		knocked = null
+		flicker = false
 
 func _physics_process(delta):
 	get_input(delta)
 	move_and_slide(velocity, Vector2(0, -1))
-
 
 func _on_JetIntro_finished():
 	if(jetpack_on):

@@ -1,29 +1,32 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ui/avenixel-regular.tres" type="DynamicFontData" id=1]
 [ext_resource path="res://ui/ui.progress.frame.png" type="Texture" id=2]
 [ext_resource path="res://ui/ui.button.progress.bar.jetpack.png" type="Texture" id=3]
 [ext_resource path="res://HUD.gd" type="Script" id=4]
+[ext_resource path="res://ui/ui.progress.frame.mask.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 11
+size = 22
+outline_size = 1
+outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 2 )
 region_rect = Rect2( 1, 1, 22, 22 )
-margin_left = 8.4818
-margin_right = 7.58222
-margin_top = 5.01198
-margin_bottom = 7.58222
+margin_left = 2.32841
+margin_right = 1.58661
+margin_top = 1.8564
+margin_bottom = 2.05995
 
 [sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 3 )
-region_rect = Rect2( 1, 1, 22, 22 )
-margin_left = 2.95578
-margin_right = 3.08429
-margin_top = 5.14049
-margin_bottom = 4.49792
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 4.84407
+margin_right = 3.94448
+margin_top = 3.99664
+margin_bottom = 4.79698
 
 [sub_resource type="Theme" id=4]
 Label/colors/font_color = Color( 0.823529, 0.415686, 0.619608, 1 )
@@ -55,17 +58,17 @@ __meta__ = {
 [node name="JetPack" type="Control" parent="Theme"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 128.0
-margin_bottom = 24.0
+margin_right = 184.0
+margin_bottom = 44.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Theme/JetPack"]
-margin_left = -4.0
-margin_top = -4.0
-margin_right = 32.0
-margin_bottom = 20.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = 54.0
+margin_bottom = 32.0
 text = "Jetpack"
 align = 1
 valign = 1
@@ -73,10 +76,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="Theme/JetPack"]
-margin_left = 32.0
-margin_top = -4.0
-margin_right = 72.0
-margin_bottom = 20.0
-value = 50.0
-percent_visible = false
+[node name="ProgressBar" type="TextureProgress" parent="Theme/JetPack"]
+margin_left = 80.0
+margin_top = 8.0
+margin_right = 168.0
+margin_bottom = 32.0
+max_value = 1.0
+step = 0.005
+value = 1.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 5 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lives" type="Control" parent="Theme"]
+margin_left = 196.0
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Theme/Lives"]
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 31.0
+text = "Lives"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icons" type="HBoxContainer" parent="Theme/Lives"]
+margin_left = 56.0
+margin_top = 12.0
+margin_right = 132.0
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
