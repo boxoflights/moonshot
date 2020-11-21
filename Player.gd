@@ -17,11 +17,16 @@ var velocity = Vector2()
 var dir = "right"
 var fire_cooldown_timer = 0
 var jet_impulse_timer = 8
+var health = 100
+var lives = 3
+var has_item = false
+var items_returned = 0
 
 var jetpack_on = false
 
 var knocked = null
 var knock = 0
+var flicker = false
 
 func knock_back(knocked_direction):
 	knock = 0.5
@@ -90,14 +95,17 @@ func get_input(delta):
 	if knock > 0:
 		velocity += knocked * 64
 		knock -= delta
-		if knock as int % 2 == 0:
+		if flicker:
 			$AnimatedSprite.modulate = Color(10, 10, 10)
 		else:
 			$AnimatedSprite.modulate = Color(0, 0, 0)
+			
+		flicker = !flicker
 	elif knocked != null:
 		$AnimatedSprite.modulate = Color(1, 1, 1)
 		knock = 0
 		knocked = null
+		flicker = false
 
 func _physics_process(delta):
 	get_input(delta)
