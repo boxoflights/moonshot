@@ -7,7 +7,7 @@ func set_jetpack_percent(v):
 	$Theme/JetPack/ProgressBar.value = v
 
 func set_fire_percent(v):
-	pass
+	$Theme/Laser/ProgressBar.value = 1.0 - v
 	
 func set_current_lives(new_lives):
 	if(new_lives == current_lives):
