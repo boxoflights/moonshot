@@ -32,7 +32,14 @@ func _on_OptionsBack_pressed():
 	set_view(views.MAINMENU)
 
 func _on_PLAY_pressed():
-	get_tree().change_scene("res://Main.tscn")
+	$Fade/Tween.interpolate_property($Fade,"modulate",
+	Color(0,0,0,0),Color(0,0,0,1),0.5)
+	$Fade/Tween.interpolate_callback(self,1,"_start_game")
+	$Fade/Tween.start()
 
 func _on_QUIT_pressed():
 	get_tree().quit()
+
+func _start_game():
+	$Fade.modulate = Color(0,0,0,0)
+	get_tree().change_scene("res://Main.tscn")
