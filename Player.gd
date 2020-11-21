@@ -29,10 +29,10 @@ var knock = 0
 var flicker = false
 
 func get_jetpack_percent():
-	return (jet_impulse_time / 100) * jet_impulse_timer
+	return (1.0 / jet_impulse_time) * jet_impulse_timer
 	
 func get_fire_percent():
-	return (fire_cooldown_time / 100) * fire_cooldown_timer
+	return (1.0 / fire_cooldown_time) * fire_cooldown_timer
 
 func knock_back(knocked_direction):
 	knock = 0.5
