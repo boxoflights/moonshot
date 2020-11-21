@@ -9,7 +9,8 @@ var direction = Vector2.ZERO
 var speed = move_speed
 var anim = "idle"
 var idle_timer = 2
-var biting = false;
+var biting = false
+var bitten = true
 
 func can_see_player():
 	var p = get_parent().get_node("Player")
@@ -23,6 +24,11 @@ func can_see_player():
 					if $RayCast2D.get_collider() == p:
 						return player_direction
 	return null
+
+func damage_player(damage_direction):
+	var p = get_parent().get_node("Player")
+	if p:
+		p.knock_back(damage_direction)
 
 func sees_player(delta, player_direction):
 	if !biting:
@@ -57,11 +63,10 @@ func _physics_process(delta):
 	move_and_slide(direction * speed, Vector2(0, -1))
 	var can_bite = false
 	
-	if !biting:	
-		for i in get_slide_count():
-			var collision = get_slide_collision(i)
-			if collision.collider.is_in_group("player"):
-				can_bite = true
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("player"):
+			can_bite = true
 	
 	speed = move_speed
 	
@@ -70,13 +75,17 @@ func _physics_process(delta):
 	
 	var player_direction = can_see_player()
 	
-	if player_direction != null:
-		if can_bite:
-			bite_player(delta)
-		else:
-			sees_player(delta, player_direction)
-	else:
+	
+	if !biting && can_bite:
+		if bitten:
+			damage_player(player_direction.normalized())
+		bite_player(delta)
+	elif player_direction != null:
+		sees_player(delta, player_direction)
+	elif !biting:
 		idle(delta)
+		
+	bitten = false
 
 func _ready():
 	$RayCast2D.add_exception($Body)
@@ -84,5 +93,6 @@ func _ready():
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation.begins_with("bite"):
+		bitten = true
 		biting = false
 	pass # Replace with function body.
