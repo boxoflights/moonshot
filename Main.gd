@@ -8,5 +8,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	$HUD.set_jetpack_percent($Player.get_jetpack_percent())
+	$HUD.set_fire_percent($Player.get_fire_percent())
+	$HUD.set_current_lives($Player.lives)
