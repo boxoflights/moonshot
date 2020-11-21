@@ -70,6 +70,7 @@ centered = false
 [node name="TileMap" type="TileMap" parent="." groups=[
 "tiles",
 ]]
+visible = false
 position = Vector2( 4, 6 )
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
