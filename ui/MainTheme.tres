@@ -1,0 +1,81 @@
+[gd_resource type="Theme" load_steps=13 format=2]
+
+[ext_resource path="res://ui/avenixel-regular.tres" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/ui.button.png" type="Texture" id=2]
+[ext_resource path="res://ui/ui.button.hover.png" type="Texture" id=3]
+[ext_resource path="res://ui/ui.slider.frame.png" type="Texture" id=4]
+[ext_resource path="res://ui/ui.slider.frame.highlight.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 3 )
+region_rect = Rect2( 1, 1, 22, 22 )
+margin_left = 2.43497
+margin_right = 1.35276
+margin_top = 1.48804
+margin_bottom = 1.21748
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 24, 24 )
+margin_left = 1.79917
+margin_right = 2.18471
+margin_top = 1.79917
+margin_bottom = 2.44173
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 2 )
+region_rect = Rect2( 1, 1, 22, 22 )
+margin_left = 2.44173
+margin_right = 2.95578
+margin_top = 3.2128
+margin_bottom = 3.46983
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 4 )
+region_rect = Rect2( -1, -1, 10, 10 )
+margin_left = 2.31322
+margin_right = 2.18471
+margin_top = 2.57024
+margin_bottom = 2.44173
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+outline_size = 1
+outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
+font_data = ExtResource( 1 )
+
+[resource]
+Button/colors/font_color = Color( 0.823529, 0.415686, 0.619608, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.0823529, 0.113725, 0.156863, 1 )
+Button/colors/font_color_pressed = Color( 0.0823529, 0.113725, 0.156863, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 4 )
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 5 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 3 )
+HSlider/icons/grabber = ExtResource( 4 )
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = ExtResource( 4 )
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource( 6 )
+HSlider/styles/grabber_area_highlight = SubResource( 6 )
+HSlider/styles/slider = SubResource( 7 )
+Label/colors/font_color = Color( 0.823529, 0.415686, 0.619608, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 1 )
+Label/styles/normal = null

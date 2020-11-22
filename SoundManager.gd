@@ -4,6 +4,7 @@ var silence_vol = -80
 
 func play_music(music: AudioStream,fade_time = 0, vol = -20):
 	stop_music(0)
+	$Music/Main.bus = "Music"
 	$Music/Main.stream = music
 	$Music/Main.volume_db = silence_vol
 	$Music/Main.play()
@@ -41,6 +42,7 @@ func play_sfx(sfx: AudioStream, vol = -20, autoplay = true):
 		$SFX.add_child(player)
 	player.stream = sfx
 	player.volume_db = vol
+	player.bus = "SFX"
 	if(autoplay):
 		player.play()
 	return player
@@ -56,6 +58,15 @@ func play_2D_sfx(sfx: AudioStream, pos: Vector2, vol = -20, autoplay = true):
 		$SFX2D.add_child(player)
 	player.stream = sfx
 	player.position = pos
+	player.bus = "SFX"
 	if(autoplay):
 		player.play()
 	return player
+
+func _apply_audio_settings():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),
+		linear2db(SettingsManager.get_setting("master")))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),
+		linear2db(SettingsManager.get_setting("music")))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), 
+		linear2db(SettingsManager.get_setting("sfx")))

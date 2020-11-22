@@ -45,11 +45,11 @@ region = Rect2( 624, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
-region = Rect2( 1488, 0, 48, 48 )
+region = Rect2( 1440, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
-region = Rect2( 1440, 0, 48, 48 )
+region = Rect2( 1488, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
@@ -152,12 +152,12 @@ animations = [ {
 }, {
 "frames": [ SubResource( 11 ) ],
 "loop": true,
-"name": "jet_left",
+"name": "jet_right",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 12 ) ],
 "loop": true,
-"name": "jet_right",
+"name": "jet_left",
 "speed": 10.0
 }, {
 "frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
@@ -211,7 +211,7 @@ color_ramp = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 36 )
 animation = "walk_left"
-frame = 1
+frame = 3
 playing = true
 
 [node name="MuzzleLeft" type="Position2D" parent="."]
@@ -224,9 +224,11 @@ position = Vector2( 16, 2 )
 
 [node name="JetIntro" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 4 )
+bus = "SFX"
 
 [node name="JetLoop" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 3 )
+bus = "SFX"
 
 [node name="Tween" type="Tween" parent="SFX"]
 [connection signal="finished" from="SFX/JetIntro" to="." method="_on_JetIntro_finished"]

@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SoundManager="*res://SoundManager.tscn"
+SettingsManager="*res://settings_manager/SettingsManager.tscn"
 
 [display]
 
