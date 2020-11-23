@@ -23,3 +23,6 @@ func set_current_lives(new_lives):
 		var l = TextureRect.new()
 		l.texture = lives_icon
 		$Theme/Lives/Icons.add_child(l)
+
+func set_health_percent(v):
+	$Theme/Health/ProgressBar.value = v

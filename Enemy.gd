@@ -28,6 +28,7 @@ func can_see_player():
 func damage_player(damage_direction):
 	var p = get_parent().get_node("Player")
 	if p:
+		p.take_damage(15)
 		p.knock_back(damage_direction)
 
 func sees_player(delta, player_direction):

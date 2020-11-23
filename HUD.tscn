@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/ui.progress.frame.png" type="Texture" id=2]
 [ext_resource path="res://ui/ui.button.progress.bar.jetpack.png" type="Texture" id=3]
 [ext_resource path="res://HUD.gd" type="Script" id=4]
+[ext_resource path="res://ui/ui.button.progress.bar.health.png" type="Texture" id=5]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 4 )
@@ -41,7 +42,7 @@ __meta__ = {
 [node name="ProgressBar" type="TextureProgress" parent="Theme/JetPack"]
 margin_left = 80.0
 margin_top = 8.0
-margin_right = 168.0
+margin_right = 128.0
 margin_bottom = 32.0
 max_value = 1.0
 step = 0.005
@@ -54,17 +55,15 @@ stretch_margin_top = 4
 stretch_margin_right = 4
 stretch_margin_bottom = 4
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Laser" type="Control" parent="Theme"]
-margin_left = 192.0
+margin_left = 148.0
 margin_top = 8.0
-margin_right = 324.0
+margin_right = 280.0
 margin_bottom = 44.0
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -100,10 +99,51 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Lives" type="Control" parent="Theme"]
-margin_left = 340.0
+[node name="Health" type="Control" parent="Theme"]
+margin_left = 288.0
 margin_top = 8.0
-margin_right = 464.0
+margin_right = 400.0
+margin_bottom = 44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Theme/Health"]
+margin_left = 4.0
+margin_top = 8.0
+margin_right = 54.0
+margin_bottom = 32.0
+text = "Health"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="TextureProgress" parent="Theme/Health"]
+margin_left = 64.0
+margin_top = 8.0
+margin_right = 112.0
+margin_bottom = 32.0
+max_value = 1.0
+step = 0.005
+value = 1.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lives" type="Control" parent="Theme"]
+margin_left = 416.0
+margin_top = 8.0
+margin_right = 540.0
 margin_bottom = 44.0
 __meta__ = {
 "_edit_use_anchors_": false
