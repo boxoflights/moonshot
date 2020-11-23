@@ -8,6 +8,7 @@ export (int) var walk_speed = 32
 export (int) var jet_speed = 32
 export (float) var fire_cooldown_time = 0.5
 export (float) var jet_impulse_time = 8
+export (float) var health_regeneration_speed = 0.5
 
 onready var sprite = get_node("AnimatedSprite")
 onready var jet_left = get_node("JetLeft")
@@ -18,6 +19,7 @@ var dir = "right"
 var fire_cooldown_timer = 0
 var jet_impulse_timer = 8
 var health = 100
+var max_health = 100
 var lives = 3
 var has_item = false
 var items_returned = 0
@@ -34,9 +36,21 @@ func get_jetpack_percent():
 func get_fire_percent():
 	return (1.0 / fire_cooldown_time) * fire_cooldown_timer
 
+func get_health_percent():
+	return (1.0 / max_health) * health
+
 func knock_back(knocked_direction):
 	knock = 0.5
 	knocked = knocked_direction
+
+func take_damage(dmg):
+	health -= dmg
+
+func regenerate_health(delta):
+	if(health < max_health):
+		health += health_regeneration_speed * delta
+		if(health > max_health):
+			health = max_health
 
 func get_input(delta):	
 	
@@ -114,6 +128,7 @@ func get_input(delta):
 		flicker = false
 
 func _physics_process(delta):
+	regenerate_health(delta)
 	get_input(delta)
 	move_and_slide(velocity, Vector2(0, -1))
 
