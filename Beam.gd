@@ -6,6 +6,7 @@ export (int) var beam_speed = 128
 var firing = true;
 var beam_length = 0
 var direction = Vector2.ZERO
+var hit = null
 
 func _physics_process(delta):	
 	if firing:
@@ -26,6 +27,8 @@ func _physics_process(delta):
 		$CPUParticles2D.position = target
 		$CPUParticles2D.direction = -direction
 		$CPUParticles2D.emitting = true
+		hit = collider
 	else:
 		$CPUParticles2D.emitting = false
+		hit = null
 	

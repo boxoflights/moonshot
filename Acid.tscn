@@ -93,6 +93,12 @@ script = ExtResource( 1 )
 position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -4 )
+shape = SubResource( 1 )
+
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 128
 lifetime = 0.6
@@ -113,6 +119,9 @@ color_ramp = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 15 )
-frame = 5
+frame = 8
 playing = true
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
