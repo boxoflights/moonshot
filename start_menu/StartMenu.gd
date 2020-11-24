@@ -1,17 +1,20 @@
 extends Node2D
 
 enum views {
+	IDENT,
 	MAINMENU,
 	OPTIONS
 }
 
-var current_view = views.MAINMENU
+var current_view = views.IDENT
 var music = load("res://moonshot-theme.ogg")
 
-var init
+var init = false
+
+var ident_time = 2.5
 
 func _ready():
-	set_view(views.MAINMENU)
+	set_view(views.IDENT)
 	SoundManager._apply_audio_settings()
 	if(!SoundManager.is_music_playing()):
 		SoundManager.play_music(music)
@@ -23,14 +26,28 @@ func _ready():
 	$OptionsMenu/Buttons/SFX/HSlider.connect("value_changed",self,"_on_Volume_value_changed")
 	print(SettingsManager.get_setting("music"))
 
+func _process(delta):
+	if !init:
+		ident_time -= delta
+		if ident_time <= 0:
+			set_view(views.MAINMENU)
+			init = true
+
 func set_view(new_view):
 	match new_view:
+		views.IDENT:			
+			$Camera.position = Vector2(0,-240)
 		views.MAINMENU:
 			$Camera.position = Vector2(0,0)
-			current_view = new_view
+			
 		views.OPTIONS:
 			$Camera.position = Vector2(360,0)
-			current_view = new_view
+	
+	if current_view == views.IDENT:
+		$Camera.smoothing_speed = 1
+	else:
+		$Camera.smoothing_speed = 10
+	current_view = new_view
 
 func _on_OPTIONS_pressed():
 	SettingsManager.save_settings()

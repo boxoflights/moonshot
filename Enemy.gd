@@ -4,6 +4,7 @@ export (int) var move_speed = 16
 export (int) var swoop_speed = 24
 export (int) var view_dist = 64
 export (int) var field_of_view = 180
+export (int) var bite_damage = 5
 
 var direction = Vector2.ZERO
 var speed = move_speed
@@ -13,7 +14,7 @@ var biting = false
 var bitten = true
 
 func can_see_player():
-	var p = get_parent().get_node("Player")
+	var p = get_tree().get_current_scene().get_node("Player")
 	if p:
 		var player_direction = p.position - position
 		if player_direction.length() < view_dist:
@@ -25,10 +26,10 @@ func can_see_player():
 						return player_direction
 	return null
 
-func damage_player(damage_direction):
-	var p = get_parent().get_node("Player")
+func damage_player(damage_direction, damage_amount):
+	var p = get_tree().get_current_scene().get_node("Player")
 	if p:
-		p.take_damage(15)
+		p.take_damage(damage_amount)
 		p.knock_back(damage_direction)
 
 func sees_player(delta, player_direction):
@@ -79,7 +80,7 @@ func _physics_process(delta):
 	
 	if !biting && can_bite:
 		if bitten:
-			damage_player(player_direction.normalized())
+			damage_player(player_direction.normalized(), bite_damage)
 		bite_player(delta)
 	elif player_direction != null:
 		sees_player(delta, player_direction)
