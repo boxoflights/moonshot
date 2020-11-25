@@ -94,7 +94,14 @@ func get_input(delta):
 	elif velocity.x == 0:
 		anim = "idle"
 	
-	sprite.play(anim + "_" + dir)
+	if(
+		anim == "idle" &&
+		sprite.animation == "fire_" + dir &&
+		fire_cooldown_timer > 0
+	):
+		pass
+	else:
+		sprite.play(anim + "_" + dir)
 	
 	if fire_cooldown_timer > 0:
 		fire_cooldown_timer -= delta
@@ -106,10 +113,16 @@ func get_input(delta):
 			if dir == "right":
 				lazer.direction = 1
 				lazer.transform = $MuzzleRight.global_transform
+				$MuzzleFlashRight.emitting = true
+				if(anim == "idle"):
+					sprite.play("fire_right")
 			else:
 				lazer.direction = -1
 				lazer.transform = $MuzzleLeft.global_transform
+				$MuzzleFlashLeft.emitting = true
 				lazer.rotation_degrees = 180
+				if(anim == "idle"):
+					sprite.play("fire_left")
 			fire_cooldown_timer = fire_cooldown_time
 	
 	if knock > 0:
