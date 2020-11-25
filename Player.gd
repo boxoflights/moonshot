@@ -140,20 +140,20 @@ func get_input(delta):
 		knocked = null
 		flicker = false
 
-func check_collision(delta):
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider.is_in_group("pickup"):
-			var c = collision.collider as Area2D
-			if !has_item:
-				has_item = true
-				c.queue_free()
+#func check_collision(delta):
+#	for i in get_slide_count():
+#		var collision = get_slide_collision(i)
+#		if collision.collider.is_in_group("pickup"):
+#			var c = collision.collider as Area2D
+#			if !has_item:
+#				has_item = true
+#				c.queue_free()
 
 func _physics_process(delta):
 	regenerate_health(delta)
 	get_input(delta)
 	move_and_slide(velocity, Vector2(0, -1))
-	check_collision(delta)
+	#check_collision(delta)
 
 func _on_JetIntro_finished():
 	if(jetpack_on):
