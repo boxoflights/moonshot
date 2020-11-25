@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lazer-blast.wav-705f6e09368608e5d21731af6844d112.sample"
+
+[deps]
+
+source_file="res://SFX/lazer-blast.wav"
+dest_files=[ "res://.import/lazer-blast.wav-705f6e09368608e5d21731af6844d112.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
