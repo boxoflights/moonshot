@@ -16,7 +16,6 @@ func _ready():
 		for name in default_settings.keys():
 			if not config.has_section_key("settings", name):
 				config.set_value("settings", name, default_settings[name])
-		print("loadsave")
 		save_settings()
 
 func get_setting(name):
@@ -28,8 +27,6 @@ func set_setting(name,value,autosave = false):
 		save_settings()
 	
 func save_settings():
-	for key in config.get_section_keys("settings"):
-		print(config.get_value("settings", key))
 	config.save("user://settings.cfg")
 	
 
