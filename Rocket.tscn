@@ -5,8 +5,8 @@
 [ext_resource path="res://Rocket.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 32.0
-height = 64.0
+radius = 16.0
+height = 0.0
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -56,11 +56,10 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.192157 )
 [node name="Rocket" type="Area2D" groups=[
 "rocket",
 ]]
-collision_layer = 0
-collision_mask = 0
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 40 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -124,3 +123,4 @@ radial_accel = 3.83
 radial_accel_random = 0.33
 scale_amount_curve = SubResource( 7 )
 color_ramp = SubResource( 8 )
+[connection signal="body_entered" from="." to="." method="_on_Rocket_body_entered"]
