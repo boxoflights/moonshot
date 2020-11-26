@@ -150,6 +150,8 @@ func get_input(delta):
 #				c.queue_free()
 
 func _physics_process(delta):
+	if(lives <= 0):
+		return
 	regenerate_health(delta)
 	get_input(delta)
 	move_and_slide(velocity, Vector2(0, -1))

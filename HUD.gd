@@ -26,3 +26,7 @@ func set_current_lives(new_lives):
 
 func set_health_percent(v):
 	$Theme/Health/ProgressBar.value = v
+
+
+func show_gameover():
+	$Theme/GameOver.show()

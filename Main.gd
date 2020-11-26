@@ -15,7 +15,8 @@ func _process(delta):
 		if $Player.lives > 0:
 			$Player.lives -= 1
 			$Player.position = $Rocket.position
-	
+		else:
+			$HUD.show_gameover()
 	$HUD.set_jetpack_percent($Player.get_jetpack_percent())
 	$HUD.set_fire_percent($Player.get_fire_percent())
 	$HUD.set_health_percent($Player.get_health_percent())

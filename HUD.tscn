@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ui/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/ui.progress.frame.png" type="Texture" id=2]
 [ext_resource path="res://ui/ui.button.progress.bar.jetpack.png" type="Texture" id=3]
 [ext_resource path="res://HUD.gd" type="Script" id=4]
 [ext_resource path="res://ui/ui.button.progress.bar.health.png" type="Texture" id=5]
+[ext_resource path="res://ui/avenixel-regular.tres" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+outline_size = 2
+outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
+font_data = ExtResource( 6 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 4 )
@@ -166,5 +173,25 @@ margin_right = 132.0
 margin_bottom = 28.0
 __meta__ = {
 "_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Control" parent="Theme"]
+visible = false
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 640.0
+margin_bottom = 448.0
+
+[node name="Title" type="Label" parent="Theme/GameOver"]
+margin_left = 36.0
+margin_top = 44.0
+margin_right = 556.0
+margin_bottom = 172.0
+custom_fonts/font = SubResource( 1 )
+text = "GAMEOVER"
+align = 1
+valign = 1
+__meta__ = {
 "_edit_use_anchors_": false
 }
