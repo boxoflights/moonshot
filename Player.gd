@@ -20,7 +20,7 @@ var fire_cooldown_timer = 0
 var jet_impulse_timer = 8
 var health = 100
 var max_health = 100
-var lives = 3
+var lives = 1
 var has_item = false
 var items_returned = 0
 
@@ -153,7 +153,8 @@ func _physics_process(delta):
 	regenerate_health(delta)
 	get_input(delta)
 	move_and_slide(velocity, Vector2(0, -1))
-	#check_collision(delta)
+	if position.y > 290:
+		health = 0
 
 func _on_JetIntro_finished():
 	if(jetpack_on):
