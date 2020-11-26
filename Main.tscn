@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://paralax.background.png" type="Texture" id=1]
 [ext_resource path="res://paralax.midground.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=12]
 [ext_resource path="res://EnemyGreen.tscn" type="PackedScene" id=13]
 [ext_resource path="res://EnemyYellow.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Screen.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 180, 120 )
@@ -70,10 +71,13 @@ centered = false
 position = Vector2( 196, 175 )
 
 [node name="Pickup" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2547, 42 )
+position = Vector2( 60, 158 )
 
 [node name="Pickup2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 4247, 226 )
+position = Vector2( 60, 178 )
+
+[node name="Pickup3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 60, 198 )
 
 [node name="Player" parent="." groups=[
 "player",
@@ -103,31 +107,34 @@ speed = 32
 [node name="Spawns" type="Node" parent="."]
 
 [node name="Screen_1" type="Area2D" parent="Spawns"]
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawns/Screen_1"]
 position = Vector2( 180, 120 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_1"]
-
-[node name="EnemyYellow" parent="Spawns/Screen_1/Layer_1" instance=ExtResource( 14 )]
-position = Vector2( 24, 54 )
 
 [node name="Enemy" parent="Spawns/Screen_1/Layer_1" instance=ExtResource( 9 )]
 position = Vector2( 323, 128 )
 
 [node name="Layer_2" type="Node" parent="Spawns/Screen_1"]
 
+[node name="EnemyGreen" parent="Spawns/Screen_1/Layer_2" instance=ExtResource( 13 )]
+position = Vector2( 280, 44 )
+
 [node name="Layer_3" type="Node" parent="Spawns/Screen_1"]
+
+[node name="EnemyYellow" parent="Spawns/Screen_1/Layer_3" instance=ExtResource( 14 )]
+position = Vector2( 24, 54 )
 
 [node name="Screen_2" type="Area2D" parent="Spawns"]
 position = Vector2( 360, 0 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawns/Screen_2"]
 position = Vector2( 180, 120 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_2"]
 
@@ -137,20 +144,17 @@ position = Vector2( 535, 78 )
 [node name="Enemy2" parent="Spawns/Screen_2/Layer_1" instance=ExtResource( 9 )]
 position = Vector2( 705, 0 )
 
-[node name="EnemyGreen" parent="Spawns/Screen_2/Layer_1" instance=ExtResource( 13 )]
-position = Vector2( 280, 44 )
-
 [node name="Layer_2" type="Node" parent="Spawns/Screen_2"]
 
 [node name="Layer_3" type="Node" parent="Spawns/Screen_2"]
 
 [node name="Screen_3" type="Area2D" parent="Spawns"]
 position = Vector2( 720, 0 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawns/Screen_3"]
 position = Vector2( 180, 120 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_3"]
 
@@ -163,11 +167,11 @@ position = Vector2( 979, 104 )
 
 [node name="Screen_4" type="Area2D" parent="Spawns"]
 position = Vector2( 1080, 0 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawns/Screen_4"]
 position = Vector2( 180, 120 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_4"]
 
@@ -180,11 +184,11 @@ position = Vector2( 1284, 64 )
 
 [node name="Screen_5" type="Area2D" parent="Spawns"]
 position = Vector2( 1440, 0 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawns/Screen_5"]
 position = Vector2( 180, 120 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_5"]
 
@@ -197,11 +201,11 @@ position = Vector2( 1702, 169 )
 
 [node name="Screen_6" type="Area2D" parent="Spawns"]
 position = Vector2( 1800, 0 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawns/Screen_6"]
 position = Vector2( 180, 120 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_6"]
 
@@ -214,11 +218,11 @@ position = Vector2( 2110, 128 )
 
 [node name="Screen_7" type="Area2D" parent="Spawns"]
 position = Vector2( 2160, 0 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawns/Screen_7"]
 position = Vector2( 180, 120 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_7"]
 
@@ -237,17 +241,22 @@ position = Vector2( 2415, 88 )
 
 [node name="Screen_8" type="Area2D" parent="Spawns"]
 position = Vector2( 2520, 0 )
+script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawns/Screen_8"]
 position = Vector2( 180, 120 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_8"]
 
 [node name="Layer_2" type="Node" parent="Spawns/Screen_8"]
 
 [node name="Layer_3" type="Node" parent="Spawns/Screen_8"]
-
-[node name="Pickup3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 60, 198 )
+[connection signal="body_entered" from="Spawns/Screen_1" to="Spawns/Screen_1" method="_on_Screen_body_entered"]
+[connection signal="body_entered" from="Spawns/Screen_2" to="Spawns/Screen_2" method="_on_Screen_body_entered"]
+[connection signal="body_entered" from="Spawns/Screen_3" to="Spawns/Screen_3" method="_on_Screen_body_entered"]
+[connection signal="body_entered" from="Spawns/Screen_4" to="Spawns/Screen_4" method="_on_Screen_body_entered"]
+[connection signal="body_entered" from="Spawns/Screen_5" to="Spawns/Screen_5" method="_on_Screen_body_entered"]
+[connection signal="body_entered" from="Spawns/Screen_6" to="Spawns/Screen_6" method="_on_Screen_body_entered"]
+[connection signal="body_entered" from="Spawns/Screen_7" to="Spawns/Screen_7" method="_on_Screen_body_entered"]
+[connection signal="body_entered" from="Spawns/Screen_8" to="Spawns/Screen_8" method="_on_Screen_body_entered"]

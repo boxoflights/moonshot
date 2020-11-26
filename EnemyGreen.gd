@@ -6,7 +6,8 @@ export (int) var drop_time = 4
 
 var drop_timer = drop_time
 
-var flank = false
+var flank = 0
+var flank_dir = -1
 
 func sees_player(delta, player_direction):
 	var angle = acos(player_direction.normalized().dot(Vector2.DOWN))
@@ -17,22 +18,22 @@ func sees_player(delta, player_direction):
 		.sees_player(delta, player_direction)
 	else:
 		var orig_pos = player_direction + position
-		var x = 64
-		if player_direction.x > 0 && player_direction.x < 64:
-			flank = false
-		elif player_direction.x < 0:
-			flank = true
-			
-		if flank: x = -x
 		
-		orig_pos += Vector2(x, -64)
+		if flank <= -16:
+			flank_dir = 1
+		elif flank >= 16:
+			flank_dir = -1
+		
+		flank += flank_dir
+			
+		orig_pos += Vector2(flank, -64)
 		orig_pos -= position
 		.sees_player(delta, orig_pos)
 
 func drop():
 	if drop_timer <= 0:
 		var acid = Acid.instance()
-		owner.add_child(acid)
+		get_tree().get_current_scene().add_child(acid)
 		acid.transform = global_transform
 		drop_timer = drop_time
 
