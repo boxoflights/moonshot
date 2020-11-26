@@ -8,7 +8,7 @@ var hit = false
 var fire_sound = load("res://SFX/lazer-blast.wav")
 
 func _ready():
-	SoundManager.play_2D_sfx(fire_sound,position)
+	SoundManager.play_sfx(fire_sound)
 
 func _physics_process(delta):
 	if(hit):
