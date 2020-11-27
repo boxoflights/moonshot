@@ -2,7 +2,7 @@ extends Node
 
 var silence_vol = -80
 
-func play_music(music: AudioStream,fade_time = 0, vol = -20):
+func play_music(music: AudioStream,fade_time = 0, vol = 0):
 	stop_music(0)
 	$Music/Main.bus = "Music"
 	$Music/Main.stream = music
@@ -15,7 +15,7 @@ func play_music(music: AudioStream,fade_time = 0, vol = -20):
 func stop_music(fade_time = 0):
 	$Music/Main.stop()
 
-func switch_music(music: AudioStream,fade_time = 0, vol = -20):
+func switch_music(music: AudioStream,fade_time = 0, vol = 0):
 	if(!is_music_playing()):
 		play_music(music,fade_time,vol)
 	else:
@@ -31,7 +31,7 @@ func is_music_playing():
 func get_current_music():
 	return $Music/Main.stream
 
-func play_sfx(sfx: AudioStream, vol = -20, autoplay = true):
+func play_sfx(sfx: AudioStream, vol = 0, autoplay = true):
 	var player = null
 	for audioSFX in $SFX.get_children():
 		if !audioSFX.is_playing():

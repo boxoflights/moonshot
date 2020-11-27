@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pickup-noise.wav-556abb1c32513330238b78866dbc5670.sample"
+
+[deps]
+
+source_file="res://SFX/pickup-noise.wav"
+dest_files=[ "res://.import/pickup-noise.wav-556abb1c32513330238b78866dbc5670.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0
