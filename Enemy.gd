@@ -26,11 +26,11 @@ func can_see_player():
 						return player_direction
 	return null
 
-func damage_player(damage_direction, damage_amount):
+func damage_player(damage_direction, damage_amount, knockback_amount, knockback_time):
 	var p = get_tree().get_current_scene().get_node("Player")
 	if p:
 		p.take_damage(damage_amount)
-		p.knock_back(damage_direction)
+		p.knock_back(damage_direction, knockback_amount, knockback_time)
 
 func sees_player(delta, player_direction):
 	if !biting:
@@ -80,7 +80,7 @@ func _physics_process(delta):
 	
 	if !biting && can_bite:
 		if bitten:
-			damage_player(player_direction.normalized(), bite_damage)
+			damage_player(player_direction.normalized(), bite_damage, 64, 0.5)
 		bite_player(delta)
 	elif player_direction != null:
 		sees_player(delta, player_direction)
