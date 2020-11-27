@@ -7,6 +7,8 @@ enum STATES {
 	REPAIRED
 }
 
+var item_return_sound = load("res://SFX/return-pickup.wav")
+
 var state
 
 func _ready():
@@ -54,6 +56,7 @@ func _on_Rocket_body_entered(body):
 	if body.is_in_group("player"):
 		print("ROCKET")
 		if body.has_item:
+			SoundManager.play_sfx(item_return_sound)
 			print("RETURNED")
 			body.has_item = false
 			body.items_returned += 1

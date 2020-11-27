@@ -45,6 +45,6 @@ color_ramp = SubResource( 1 )
 
 [node name="AudioLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -20.0
+volume_db = -5.0
 autoplay = true
 bus = "SFX"
