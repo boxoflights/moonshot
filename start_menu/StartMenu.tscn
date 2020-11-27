@@ -113,20 +113,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PLAY" type="Button" parent="MainMenu/Buttons"]
+[node name="PLAY" type="Button" parent="MainMenu/Buttons" groups=[
+"buttons",
+]]
 margin_right = 120.0
 margin_bottom = 22.6826
 mouse_default_cursor_shape = 2
 text = "PLAY"
 
-[node name="OPTIONS" type="Button" parent="MainMenu/Buttons"]
+[node name="OPTIONS" type="Button" parent="MainMenu/Buttons" groups=[
+"buttons",
+]]
 margin_top = 38.0
 margin_right = 120.0
 margin_bottom = 60.6826
 mouse_default_cursor_shape = 2
 text = "OPTIONS"
 
-[node name="QUIT" type="Button" parent="MainMenu/Buttons"]
+[node name="QUIT" type="Button" parent="MainMenu/Buttons" groups=[
+"buttons",
+]]
 margin_top = 76.0
 margin_right = 120.0
 margin_bottom = 98.6826
@@ -173,7 +179,9 @@ margin_right = 120.0
 margin_bottom = 16.0
 text = "MASTER VOL"
 
-[node name="HSlider" type="HSlider" parent="OptionsMenu/Buttons/Master"]
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Buttons/Master" groups=[
+"buttons",
+]]
 margin_top = 16.0
 margin_right = 120.0
 margin_bottom = 24.0
@@ -196,7 +204,9 @@ margin_right = 120.0
 margin_bottom = 16.0
 text = "MUSIC VOL"
 
-[node name="HSlider" type="HSlider" parent="OptionsMenu/Buttons/Music"]
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Buttons/Music" groups=[
+"buttons",
+]]
 margin_top = 16.0
 margin_right = 120.0
 margin_bottom = 24.0
@@ -219,7 +229,9 @@ margin_right = 120.0
 margin_bottom = 16.0
 text = "SFX VOL"
 
-[node name="HSlider" type="HSlider" parent="OptionsMenu/Buttons/SFX"]
+[node name="HSlider" type="HSlider" parent="OptionsMenu/Buttons/SFX" groups=[
+"buttons",
+]]
 margin_top = 16.0
 margin_right = 120.0
 margin_bottom = 24.0
@@ -231,7 +243,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" type="Button" parent="OptionsMenu/Buttons"]
+[node name="Back" type="Button" parent="OptionsMenu/Buttons" groups=[
+"buttons",
+]]
 margin_top = 120.0
 margin_right = 120.0
 margin_bottom = 142.683
