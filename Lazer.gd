@@ -6,6 +6,8 @@ var speed = 160
 var hit = false
 
 var fire_sound = load("res://SFX/lazer-blast.wav")
+var miss_sound = load("res://SFX/lazer-miss.wav")
+var hit_sound = load("res://SFX/lazer-hit.wav")
 
 func _ready():
 	SoundManager.play_sfx(fire_sound)
@@ -20,6 +22,9 @@ func _physics_process(delta):
 func _on_Lazer_body_entered(body):
 	if body.is_in_group("mobs"):
 		body.queue_free()
+		SoundManager.play_sfx(hit_sound)
+	else:
+		SoundManager.play_sfx(miss_sound)
 	hit = true
 	$BulletParticle.emitting = false
 	monitoring = false

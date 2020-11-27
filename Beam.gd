@@ -15,10 +15,13 @@ func _physics_process(delta):
 			
 			var vec = direction * beam_length		
 			$Line2D.points[0] = $Line2D.points[1] - vec
+			$AudioLoop.stop()
 		else:
 			queue_free()
 		
 	else:
+		if(!$AudioLoop.playing):
+				$AudioLoop.play()
 		if beam_length < max_beam_length:
 			beam_length += beam_speed * delta
 	

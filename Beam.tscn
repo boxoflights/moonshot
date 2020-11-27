@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Beam.gd" type="Script" id=1]
 [ext_resource path="res://effect.eyebeam.png" type="Texture" id=2]
+[ext_resource path="res://SFX/beam-sound.wav" type="AudioStream" id=3]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.519149, 1 )
 colors = PoolColorArray( 0.870588, 0.619608, 0.254902, 1, 0.909804, 0.756863, 0.439216, 1, 0.921569, 0.929412, 0.913725, 1 )
 
@@ -40,4 +41,10 @@ initial_velocity_random = 1.0
 angle = 720.0
 angle_random = 1.0
 scale_amount = 2.0
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 1 )
+
+[node name="AudioLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+autoplay = true
+bus = "SFX"
