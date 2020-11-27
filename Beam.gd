@@ -9,15 +9,22 @@ var direction = Vector2.ZERO
 var hit = null
 
 func _physics_process(delta):	
-	if firing:
+	if !firing:
+		if beam_length > 0:
+			beam_length -= beam_speed * delta * 16
+			
+			var vec = direction * beam_length		
+			$Line2D.points[0] = $Line2D.points[1] - vec
+		else:
+			queue_free()
+		
+	else:
 		if beam_length < max_beam_length:
 			beam_length += beam_speed * delta
-	else:
-		queue_free()
 	
-	var vec = direction * beam_length
-	
-	$Line2D.points[1] = vec
+		var vec = direction * beam_length
+		
+		$Line2D.points[1] = vec
 	
 	$RayCast2D.cast_to = $Line2D.points[1]
 	if $RayCast2D.is_colliding():

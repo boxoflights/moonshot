@@ -50,7 +50,7 @@ func idle(delta):
 func _physics_process(delta):
 	if beam && beam.hit != null:
 		if beam.hit.is_in_group("player"):
-			damage_player(beam.direction, beam_damage * delta)
+			damage_player(beam.direction, beam_damage * delta, 16, 0.5)
 
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation.begins_with("beam_start"):

@@ -8,6 +8,9 @@ func _ready():
 	state = $Rocket.state
 	SoundManager.play_music(music,0.5)
 
+func respawn():
+	for c in $Spawns.get_children():
+			c.spawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,6 +25,5 @@ func _process(delta):
 	$HUD.set_current_lives($Player.lives)
 	
 	if $Rocket.state != state:
-		for c in $Spawns.get_children():
-			c.spawn()
+		respawn()
 		state = $Rocket.state
