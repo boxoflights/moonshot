@@ -8,10 +8,13 @@ enum views {
 
 var current_view = views.IDENT
 var music = load("res://moonshot-theme.ogg")
+var menu_change_sfx = load("res://SFX/menuChange.wav")
 
 var init = false
 
 var ident_time = 2.5
+
+var dont_play_menu_change_sound = false
 
 func _ready():
 	set_view(views.IDENT)
@@ -24,7 +27,9 @@ func _ready():
 	$OptionsMenu/Buttons/Master/HSlider.connect("value_changed",self,"_on_Volume_value_changed")
 	$OptionsMenu/Buttons/Music/HSlider.connect("value_changed",self,"_on_Volume_value_changed")
 	$OptionsMenu/Buttons/SFX/HSlider.connect("value_changed",self,"_on_Volume_value_changed")
-	print(SettingsManager.get_setting("music"))
+	for button in get_tree().get_nodes_in_group("buttons"):
+		button.connect("focus_entered",self,"_play_ui_sound")
+		button.connect("mouse_entered",self,"_play_ui_sound")
 
 func _process(delta):
 	if !init:
@@ -39,8 +44,9 @@ func set_view(new_view):
 			$Camera.position = Vector2(0,-240)
 		views.MAINMENU:
 			$Camera.position = Vector2(0,0)
-			
+			dont_play_menu_change_sound = true
 		views.OPTIONS:
+			dont_play_menu_change_sound = true
 			$Camera.position = Vector2(360,0)
 	
 	if current_view == views.IDENT:
@@ -76,3 +82,9 @@ func _on_Volume_value_changed(value):
 	SettingsManager.set_setting("sfx",$OptionsMenu/Buttons/SFX/HSlider.value)
 	SettingsManager.save_settings()
 	SoundManager._apply_audio_settings()
+
+func _play_ui_sound():
+	if(dont_play_menu_change_sound):
+		dont_play_menu_change_sound = false
+	else:
+		SoundManager.play_sfx(menu_change_sfx)
