@@ -8,6 +8,8 @@ enum STATES {
 }
 
 var state
+var velocity_y = 0
+var acceleration = 32
 
 func _ready():
 	set_state(STATES.REPAIRING_0)
@@ -42,13 +44,13 @@ func set_state(new_state):
 			$Smoke/Smoke3.emitting = false
 			$Smoke/Smoke4.emitting = false
 			state = new_state
+			
 
-func launch(delta):
-	position.y -= delta * 128
-	
+
 func _process(delta):
 	if state == STATES.REPAIRED:
-		launch(delta)
+		velocity_y += acceleration * delta
+		position.y -= velocity_y * delta
 
 func _on_Rocket_body_entered(body):
 	if body.is_in_group("player"):

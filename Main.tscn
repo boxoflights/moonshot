@@ -73,6 +73,15 @@ position = Vector2( 196, 175 )
 [node name="Pickup" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2546, 50 )
 
+[node name="Pickup4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 33, 215 )
+
+[node name="Pickup5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 33, 188 )
+
+[node name="Pickup6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 33, 160 )
+
 [node name="Pickup2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 4249, 225 )
 
@@ -115,9 +124,6 @@ shape = SubResource( 1 )
 
 [node name="Enemy" parent="Spawns/Screen_1/Layer_1" instance=ExtResource( 9 )]
 position = Vector2( 323, 128 )
-
-[node name="EnemyYellow" parent="Spawns/Screen_1/Layer_1" instance=ExtResource( 14 )]
-position = Vector2( 240, 104 )
 
 [node name="Layer_2" type="Node" parent="Spawns/Screen_1"]
 
