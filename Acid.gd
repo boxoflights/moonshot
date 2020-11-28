@@ -6,6 +6,11 @@ var lifetime = 10
 var landed = false
 var hit = false
 
+var drop_sound = load("res://SFX/acid-drop.wav")
+
+func _ready():
+	SoundManager.play_sfx(drop_sound)
+
 func _physics_process(delta):
 	move_and_slide(direction * speed, Vector2.UP)
 	

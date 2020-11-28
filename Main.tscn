@@ -531,6 +531,9 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_20"]
 
 [node name="HUD" parent="." instance=ExtResource( 12 )]
+
+[node name="Pickup4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 44, 206 )
 [connection signal="body_entered" from="Spawns/Screen_1" to="Spawns/Screen_1" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_2" to="Spawns/Screen_2" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_3" to="Spawns/Screen_3" method="_on_Screen_body_entered"]

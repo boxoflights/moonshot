@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lazer-hit.wav-793316d1f5cf20d87002522a8292122f.sample"
+
+[deps]
+
+source_file="res://SFX/lazer-hit.wav"
+dest_files=[ "res://.import/lazer-hit.wav-793316d1f5cf20d87002522a8292122f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

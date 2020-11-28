@@ -2,7 +2,7 @@ extends Node2D
 
 var default_settings = {
 	"master": 1.0,
-	"music": 0.8,
+	"music": 1.0,
 	"sfx": 0.8,
 }
 
