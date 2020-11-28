@@ -29,3 +29,7 @@ func _on_Lazer_body_entered(body):
 	$BulletParticle.emitting = false
 	monitoring = false
 	$HitExplosion.emitting = true
+
+
+func _on_VisibilityNotifier2D_viewport_exited(viewport):
+	queue_free()
