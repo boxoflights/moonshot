@@ -161,11 +161,12 @@ func get_input(delta):
 #				c.queue_free()
 
 func _physics_process(delta):
-	regenerate_health(delta)
-	get_input(delta)
-	move_and_slide(velocity, Vector2(0, -1))
-	if position.y > 290:
-		health = 0
+	if visible:
+		regenerate_health(delta)
+		get_input(delta)
+		move_and_slide(velocity, Vector2(0, -1))
+		if position.y > 290:
+			health = 0
 
 func _on_JetIntro_finished():
 	if(jetpack_on):

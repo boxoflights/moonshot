@@ -104,47 +104,8 @@ speed = 32
 
 [node name="Spawns" type="Node" parent="."]
 
-[node name="Screen_1" type="Area2D" parent="Spawns"]
-script = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawns/Screen_1"]
-position = Vector2( 180, 120 )
-shape = SubResource( 1 )
-
-[node name="Layer_1" type="Node" parent="Spawns/Screen_1"]
-
-[node name="Enemy" parent="Spawns/Screen_1/Layer_1" instance=ExtResource( 9 )]
-position = Vector2( 323, 128 )
-
-[node name="EnemyYellow" parent="Spawns/Screen_1/Layer_1" instance=ExtResource( 14 )]
-position = Vector2( 240, 104 )
-
-[node name="Layer_2" type="Node" parent="Spawns/Screen_1"]
-
-[node name="EnemyGreen" parent="Spawns/Screen_1/Layer_2" instance=ExtResource( 13 )]
-position = Vector2( 280, 78 )
-
-[node name="Layer_3" type="Node" parent="Spawns/Screen_1"]
-
-[node name="Enemy" parent="Spawns/Screen_1/Layer_3" instance=ExtResource( 9 )]
-position = Vector2( 108, 128 )
-
-[node name="Layer_4" type="Node" parent="Spawns/Screen_1"]
-
-[node name="Enemy" parent="Spawns/Screen_1/Layer_4" instance=ExtResource( 9 )]
-position = Vector2( 323, 104 )
-
-[node name="Layer_5" type="Node" parent="Spawns/Screen_1"]
-
-[node name="Enemy" parent="Spawns/Screen_1/Layer_5" instance=ExtResource( 9 )]
-position = Vector2( 62, 128 )
-
-[node name="Layer_6" type="Node" parent="Spawns/Screen_1"]
-
-[node name="EnemyYellow" parent="Spawns/Screen_1/Layer_6" instance=ExtResource( 14 )]
-position = Vector2( 105, 174 )
-
 [node name="Screen_2" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 360, 0 )
 script = ExtResource( 15 )
 
@@ -154,9 +115,30 @@ shape = SubResource( 1 )
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_2"]
 
+[node name="Enemy" parent="Spawns/Screen_2/Layer_1" instance=ExtResource( 9 )]
+position = Vector2( 360, 125 )
+
+[node name="Enemy2" parent="Spawns/Screen_2/Layer_1" instance=ExtResource( 9 )]
+position = Vector2( 534, 75 )
+
+[node name="Enemy3" parent="Spawns/Screen_2/Layer_1" instance=ExtResource( 9 )]
+position = Vector2( 694, 20 )
+
 [node name="Layer_2" type="Node" parent="Spawns/Screen_2"]
 
+[node name="EnemyGreen" parent="Spawns/Screen_2/Layer_2" instance=ExtResource( 13 )]
+position = Vector2( 639, 64 )
+
 [node name="Layer_3" type="Node" parent="Spawns/Screen_2"]
+
+[node name="Enemy" parent="Spawns/Screen_2/Layer_3" instance=ExtResource( 9 )]
+position = Vector2( 510, 101 )
+
+[node name="Enemy2" parent="Spawns/Screen_2/Layer_3" instance=ExtResource( 9 )]
+position = Vector2( 500, 120 )
+
+[node name="Enemy3" parent="Spawns/Screen_2/Layer_3" instance=ExtResource( 9 )]
+position = Vector2( 492, 101 )
 
 [node name="Layer_4" type="Node" parent="Spawns/Screen_2"]
 
@@ -165,6 +147,7 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_2"]
 
 [node name="Screen_3" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 720, 0 )
 script = ExtResource( 15 )
 
@@ -174,7 +157,19 @@ shape = SubResource( 1 )
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_3"]
 
+[node name="EnemyGreen" parent="Spawns/Screen_3/Layer_1" instance=ExtResource( 13 )]
+position = Vector2( 974, 75 )
+
 [node name="Layer_2" type="Node" parent="Spawns/Screen_3"]
+
+[node name="Enemy" parent="Spawns/Screen_3/Layer_2" instance=ExtResource( 9 )]
+position = Vector2( 860, 64 )
+
+[node name="Enemy2" parent="Spawns/Screen_3/Layer_2" instance=ExtResource( 9 )]
+position = Vector2( 847, 88 )
+
+[node name="Enemy3" parent="Spawns/Screen_3/Layer_2" instance=ExtResource( 9 )]
+position = Vector2( 871, 88 )
 
 [node name="Layer_3" type="Node" parent="Spawns/Screen_3"]
 
@@ -185,6 +180,7 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_3"]
 
 [node name="Screen_4" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 1080, 0 )
 script = ExtResource( 15 )
 
@@ -194,9 +190,24 @@ shape = SubResource( 1 )
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_4"]
 
+[node name="Enemy" parent="Spawns/Screen_4/Layer_1" instance=ExtResource( 9 )]
+position = Vector2( 1301, 168 )
+
+[node name="Enemy2" parent="Spawns/Screen_4/Layer_1" instance=ExtResource( 9 )]
+position = Vector2( 1277, 168 )
+
+[node name="Enemy3" parent="Spawns/Screen_4/Layer_1" instance=ExtResource( 9 )]
+position = Vector2( 1289, 144 )
+
 [node name="Layer_2" type="Node" parent="Spawns/Screen_4"]
 
+[node name="EnemyGreen" parent="Spawns/Screen_4/Layer_2" instance=ExtResource( 13 )]
+position = Vector2( 1242, 101 )
+
 [node name="Layer_3" type="Node" parent="Spawns/Screen_4"]
+
+[node name="EnemyYellow" parent="Spawns/Screen_4/Layer_3" instance=ExtResource( 14 )]
+position = Vector2( 1124, 125 )
 
 [node name="Layer_4" type="Node" parent="Spawns/Screen_4"]
 
@@ -205,6 +216,7 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_4"]
 
 [node name="Screen_5" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 1440, 0 )
 script = ExtResource( 15 )
 
@@ -214,9 +226,21 @@ shape = SubResource( 1 )
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_5"]
 
+[node name="Enemy" parent="Spawns/Screen_5/Layer_1" instance=ExtResource( 9 )]
+position = Vector2( 1620, 132 )
+
 [node name="Layer_2" type="Node" parent="Spawns/Screen_5"]
 
+[node name="EnemyGreen" parent="Spawns/Screen_5/Layer_2" instance=ExtResource( 13 )]
+position = Vector2( 1568, 120 )
+
 [node name="Layer_3" type="Node" parent="Spawns/Screen_5"]
+
+[node name="Enemy" parent="Spawns/Screen_5/Layer_3" instance=ExtResource( 9 )]
+position = Vector2( 1680, 156 )
+
+[node name="Enemy2" parent="Spawns/Screen_5/Layer_3" instance=ExtResource( 9 )]
+position = Vector2( 1680, 132 )
 
 [node name="Layer_4" type="Node" parent="Spawns/Screen_5"]
 
@@ -225,6 +249,7 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_5"]
 
 [node name="Screen_6" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 1800, 0 )
 script = ExtResource( 15 )
 
@@ -234,9 +259,24 @@ shape = SubResource( 1 )
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_6"]
 
+[node name="Enemy" parent="Spawns/Screen_6/Layer_1" instance=ExtResource( 9 )]
+position = Vector2( 1989, 156 )
+
 [node name="Layer_2" type="Node" parent="Spawns/Screen_6"]
 
+[node name="Enemy" parent="Spawns/Screen_6/Layer_2" instance=ExtResource( 9 )]
+position = Vector2( 2110, 192 )
+
+[node name="Enemy2" parent="Spawns/Screen_6/Layer_2" instance=ExtResource( 9 )]
+position = Vector2( 2134, 192 )
+
+[node name="Enemy3" parent="Spawns/Screen_6/Layer_2" instance=ExtResource( 9 )]
+position = Vector2( 2122, 169 )
+
 [node name="Layer_3" type="Node" parent="Spawns/Screen_6"]
+
+[node name="EnemyYellow" parent="Spawns/Screen_6/Layer_3" instance=ExtResource( 14 )]
+position = Vector2( 2072, 120 )
 
 [node name="Layer_4" type="Node" parent="Spawns/Screen_6"]
 
@@ -254,9 +294,30 @@ shape = SubResource( 1 )
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_7"]
 
+[node name="EnemyGreen" parent="Spawns/Screen_7/Layer_1" instance=ExtResource( 13 )]
+position = Vector2( 2431, 64 )
+
 [node name="Layer_2" type="Node" parent="Spawns/Screen_7"]
 
+[node name="Enemy" parent="Spawns/Screen_7/Layer_2" instance=ExtResource( 9 )]
+position = Vector2( 2422, 180 )
+
+[node name="Enemy2" parent="Spawns/Screen_7/Layer_2" instance=ExtResource( 9 )]
+position = Vector2( 2455, 180 )
+
 [node name="Layer_3" type="Node" parent="Spawns/Screen_7"]
+
+[node name="Enemy" parent="Spawns/Screen_7/Layer_3" instance=ExtResource( 9 )]
+position = Vector2( 2340, 125 )
+
+[node name="Enemy2" parent="Spawns/Screen_7/Layer_3" instance=ExtResource( 9 )]
+position = Vector2( 2340, 101 )
+
+[node name="Enemy3" parent="Spawns/Screen_7/Layer_3" instance=ExtResource( 9 )]
+position = Vector2( 2340, 77 )
+
+[node name="Enemy4" parent="Spawns/Screen_7/Layer_3" instance=ExtResource( 9 )]
+position = Vector2( 2340, 53 )
 
 [node name="Layer_4" type="Node" parent="Spawns/Screen_7"]
 
@@ -278,6 +339,9 @@ shape = SubResource( 1 )
 
 [node name="Layer_3" type="Node" parent="Spawns/Screen_8"]
 
+[node name="EnemyGreen" parent="Spawns/Screen_8/Layer_3" instance=ExtResource( 13 )]
+position = Vector2( 2728, 16 )
+
 [node name="Layer_4" type="Node" parent="Spawns/Screen_8"]
 
 [node name="Layer_5" type="Node" parent="Spawns/Screen_8"]
@@ -285,6 +349,7 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_8"]
 
 [node name="Screen_9" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 2880, 0 )
 script = ExtResource( 15 )
 
@@ -305,6 +370,7 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_9"]
 
 [node name="Screen_10" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 3240, 0 )
 script = ExtResource( 15 )
 
@@ -325,6 +391,7 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_10"]
 
 [node name="Screen_11" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 3600, 0 )
 script = ExtResource( 15 )
 
@@ -345,6 +412,7 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_11"]
 
 [node name="Screen_12" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 3960, 0 )
 script = ExtResource( 15 )
 
@@ -365,6 +433,7 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_12"]
 
 [node name="Screen_13" type="Area2D" parent="Spawns"]
+visible = false
 position = Vector2( 4320, 0 )
 script = ExtResource( 15 )
 
@@ -525,10 +594,6 @@ shape = SubResource( 1 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_20"]
 
 [node name="HUD" parent="." instance=ExtResource( 12 )]
-
-[node name="Pickup4" parent="." instance=ExtResource( 11 )]
-position = Vector2( 44, 206 )
-[connection signal="body_entered" from="Spawns/Screen_1" to="Spawns/Screen_1" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_2" to="Spawns/Screen_2" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_3" to="Spawns/Screen_3" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_4" to="Spawns/Screen_4" method="_on_Screen_body_entered"]
