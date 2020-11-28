@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/eye-bite.wav-c9176cf8098f3372b4a6f307122e941d.sample"
+
+[deps]
+
+source_file="res://SFX/eye-bite.wav"
+dest_files=[ "res://.import/eye-bite.wav-c9176cf8098f3372b4a6f307122e941d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

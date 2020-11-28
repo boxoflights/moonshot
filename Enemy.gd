@@ -13,6 +13,9 @@ var idle_timer = 2
 var biting = false
 var bitten = true
 
+var bite_sound = load("res://SFX/eye-bite.wav")
+var should_play_bite_sound = false
+
 func can_see_player():
 	var p = get_tree().get_current_scene().get_node("Player")
 	if p:
@@ -40,6 +43,7 @@ func sees_player(delta, player_direction):
 
 func bite_player(delta):
 	biting = true
+	should_play_bite_sound = true
 	anim = "bite"
 
 func idle(delta):
@@ -62,6 +66,14 @@ func animate():
 func _physics_process(delta):
 	animate()
 	
+	if(
+		anim == "bite" &&
+		should_play_bite_sound &&
+		$AnimatedSprite.frame == 8
+	):
+		SoundManager.play_sfx(bite_sound)
+		should_play_bite_sound = false
+	
 	move_and_slide(direction * speed, Vector2(0, -1))
 	var can_bite = false
 	
@@ -79,7 +91,7 @@ func _physics_process(delta):
 	
 	
 	if !biting && can_bite:
-		if bitten:
+		if bitten && player_direction:
 			damage_player(player_direction.normalized(), bite_damage, 64, 0.5)
 		bite_player(delta)
 	elif player_direction != null:
