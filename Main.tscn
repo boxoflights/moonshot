@@ -115,6 +115,9 @@ shape = SubResource( 1 )
 
 [node name="Layer_1" type="Node" parent="Spawns/Screen_2"]
 
+[node name="EnemyYellow" parent="Spawns/Screen_2/Layer_1" instance=ExtResource( 14 )]
+position = Vector2( 224, 80 )
+
 [node name="Enemy" parent="Spawns/Screen_2/Layer_1" instance=ExtResource( 9 )]
 position = Vector2( 360, 125 )
 

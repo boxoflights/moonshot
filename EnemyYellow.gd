@@ -1,7 +1,7 @@
 extends "res://Enemy.gd"
 
 export (PackedScene) var Beam
-export (int) var beam_damage = 50
+export (int) var beam_damage = 10
 
 var charging = false
 var firing = false

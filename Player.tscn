@@ -197,6 +197,7 @@ radius = 6.95688
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+jet_speed = 48
 
 [node name="JetLeft" type="CPUParticles2D" parent="."]
 position = Vector2( -3, 0 )
