@@ -75,6 +75,10 @@ func get_input(delta):
 		if jet_impulse_timer > 0:
 			if(!jetpack_on):
 				$SFX/JetIntro.play()
+				$SFX/JetLoop.play()
+				$SFX/Tween.stop_all()
+				$SFX/Tween.interpolate_property($SFX/JetLoop,"volume_db",-90,0,0.15)
+				$SFX/Tween.start()
 			jetpack_on = true
 			jet_impulse_timer -= delta
 			jet_left.emitting = true
@@ -85,7 +89,8 @@ func get_input(delta):
 			jet_right.emitting = false
 	else:
 		if(jetpack_on):
-			$SFX/Tween.interpolate_property($SFX/JetLoop,"volume_db",$SFX/JetLoop.volume_db,-90,0.5)
+			$SFX/Tween.stop_all()
+			$SFX/Tween.interpolate_property($SFX/JetLoop,"volume_db",0,-90,0.5)
 			$SFX/Tween.interpolate_callback($SFX/JetLoop,0.5,"stop")
 			$SFX/Tween.start()
 		jetpack_on = false
@@ -167,8 +172,3 @@ func _physics_process(delta):
 		move_and_slide(velocity, Vector2(0, -1))
 		if position.y > 290:
 			health = 0
-
-func _on_JetIntro_finished():
-	if(jetpack_on):
-		$SFX/JetLoop.volume_db = 0
-		$SFX/JetLoop.play()
