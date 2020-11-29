@@ -14,7 +14,12 @@ var biting = false
 var bitten = true
 
 var bite_sound = load("res://SFX/eye-bite.wav")
+var death_sound = load("res://SFX/enemy-explode.wav")
 var should_play_bite_sound = false
+
+func die():
+	SoundManager.play_sfx(death_sound)
+	queue_free()
 
 func can_see_player():
 	var p = get_tree().get_current_scene().get_node("Player")
