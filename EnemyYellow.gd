@@ -57,6 +57,7 @@ func _physics_process(delta):
 			damage_player(beam.direction, beam_damage * delta, 16, 0.5)
 
 func _on_AnimatedSprite_animation_finished():
+	._on_AnimatedSprite_animation_finished()
 	if $AnimatedSprite.animation.begins_with("beam_start"):
 		charging = false
 		firing = true
