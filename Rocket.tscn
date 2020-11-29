@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://object.rocket.png" type="Texture" id=1]
 [ext_resource path="res://effect.smoke.png" type="Texture" id=2]
@@ -29,6 +29,62 @@ region = Rect2( 192, 0, 96, 144 )
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 96, 144 )
 
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 864, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 960, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 1056, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 1 )
+region = Rect2( 1152, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 1248, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 1344, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 1440, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 1536, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
+region = Rect2( 1632, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 1 )
+region = Rect2( 384, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 1 )
+region = Rect2( 480, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 1 )
+region = Rect2( 576, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 1 )
+region = Rect2( 672, 0, 96, 144 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 1 )
+region = Rect2( 768, 0, 96, 144 )
+
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ SubResource( 3 ) ],
@@ -50,6 +106,16 @@ animations = [ {
 "loop": true,
 "name": "repaired",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": false,
+"name": "repaired_door_closing",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": false,
+"name": "repaired_door_opening",
+"speed": 10.0
 } ]
 
 [sub_resource type="Curve" id=8]
@@ -96,7 +162,6 @@ shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
-animation = "repairing_2"
 
 [node name="Smoke" type="Node2D" parent="."]
 
@@ -200,4 +265,7 @@ scale_amount_curve = SubResource( 10 )
 [node name="LiftOffSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 bus = "SFX"
+
+[node name="DoorPosition" type="Position2D" parent="."]
+position = Vector2( 0, -24 )
 [connection signal="body_entered" from="." to="." method="_on_Rocket_body_entered"]

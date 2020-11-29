@@ -32,6 +32,8 @@ var knock = 0
 var flicker = false
 var flicker_time = 0
 
+var block_input = false
+
 func get_jetpack_percent():
 	return (1.0 / jet_impulse_time) * jet_impulse_timer
 	
@@ -56,8 +58,36 @@ func regenerate_health(delta):
 		if(health > max_health):
 			health = max_health
 
-func get_input(delta):	
+func do_end_sequence():
+	block_input = true
+	$AnimatedSprite.play("jet_"+dir)
+	turn_jetpack_on()
+	pass
+
+func disappear():
+	visible = false
+	turn_jetpack_off()
 	
+func turn_jetpack_on():
+	$SFX/JetIntro.play()
+	$SFX/JetLoop.play()
+	$SFX/Tween.stop_all()
+	$SFX/Tween.interpolate_property($SFX/JetLoop,"volume_db",-90,0,0.15)
+	$SFX/Tween.start()
+	jet_left.emitting = true
+	jet_right.emitting = true
+
+func turn_jetpack_off():
+	$SFX/Tween.stop_all()
+	$SFX/Tween.interpolate_property($SFX/JetLoop,"volume_db",0,-90,0.5)
+	$SFX/Tween.interpolate_callback($SFX/JetLoop,0.5,"stop")
+	$SFX/Tween.start()
+	jet_left.emitting = false
+	jet_right.emitting = false
+	jetpack_on = false
+
+func get_input(delta):
+	if(block_input): return
 	velocity.y = GRAVITY
 	
 	var anim = "walk"
@@ -74,26 +104,16 @@ func get_input(delta):
 	if Input.is_action_pressed("jet_impulse"):
 		if jet_impulse_timer > 0:
 			if(!jetpack_on):
-				$SFX/JetIntro.play()
-				$SFX/JetLoop.play()
-				$SFX/Tween.stop_all()
-				$SFX/Tween.interpolate_property($SFX/JetLoop,"volume_db",-90,0,0.15)
-				$SFX/Tween.start()
+				turn_jetpack_on()
 			jetpack_on = true
 			jet_impulse_timer -= delta
-			jet_left.emitting = true
-			jet_right.emitting = true
+
 			velocity.y -= GRAVITY + jet_speed
 		else:
-			jet_left.emitting = false
-			jet_right.emitting = false
+			turn_jetpack_off()
 	else:
 		if(jetpack_on):
-			$SFX/Tween.stop_all()
-			$SFX/Tween.interpolate_property($SFX/JetLoop,"volume_db",0,-90,0.5)
-			$SFX/Tween.interpolate_callback($SFX/JetLoop,0.5,"stop")
-			$SFX/Tween.start()
-		jetpack_on = false
+			turn_jetpack_off()
 		if jet_impulse_timer < jet_impulse_time:
 			if is_on_floor():
 				jet_impulse_timer += delta  * 4

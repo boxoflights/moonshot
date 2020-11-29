@@ -4,7 +4,10 @@ enum STATES {
 	REPAIRING_0,
 	REPAIRING_1,
 	REPAIRING_2,
-	REPAIRED
+	REPAIRED,
+	DOOR_OPENING,
+	DOOR_CLOSING,
+	BLASTOFF,
 }
 
 var item_return_sound = load("res://SFX/return-pickup.wav")
@@ -13,7 +16,7 @@ var velocity_y = 0
 var acceleration = 32
 
 func _ready():
-	set_state(STATES.REPAIRED)
+	set_state(STATES.REPAIRING_2)
 
 func set_state(new_state):
 	match new_state:
@@ -45,7 +48,29 @@ func set_state(new_state):
 			$Smoke/Smoke3.emitting = false
 			$Smoke/Smoke4.emitting = false
 			state = new_state
+		STATES.DOOR_OPENING:
+			$AnimatedSprite.play("repaired_door_opening")
+			$Smoke/Smoke1.emitting = false
+			$Smoke/Smoke2.emitting = false
+			$Smoke/Smoke3.emitting = false
+			$Smoke/Smoke4.emitting = false
+			state = new_state
+		STATES.DOOR_CLOSING:
+			$AnimatedSprite.play("repaired_door_closing")
+			$Smoke/Smoke1.emitting = false
+			$Smoke/Smoke2.emitting = false
+			$Smoke/Smoke3.emitting = false
+			$Smoke/Smoke4.emitting = false
+			state = new_state
+		STATES.BLASTOFF:
+			$AnimatedSprite.play("repaired")
+			$Smoke/Smoke1.emitting = false
+			$Smoke/Smoke2.emitting = false
+			$Smoke/Smoke3.emitting = false
+			$Smoke/Smoke4.emitting = false
+			state = new_state
 			blast_off()
+		
 			
 			
 func blast_off():

@@ -22,7 +22,15 @@ func _process(delta):
 			
 		if state == $Rocket.STATES.REPAIRED:
 			complete = true
-			$Player.visible = false	
+			$Player.do_end_sequence()
+			var tween = Tween.new()
+			tween.interpolate_property($Player,"position",$Player.position,$Rocket/DoorPosition.get_global_position(),1.5)
+			tween.interpolate_callback($Rocket,0.3,"set_state",$Rocket.STATES.DOOR_OPENING)
+			tween.interpolate_callback($Player,1.5,"disappear")
+			tween.interpolate_callback($Rocket,1.5,"set_state",$Rocket.STATES.DOOR_CLOSING)
+			tween.interpolate_callback($Rocket,3.5,"set_state",$Rocket.STATES.BLASTOFF)
+			get_parent().add_child(tween)
+			tween.start()
 		else:
 			if $Player.health <= 0:
 				if $Player.lives > 0:
