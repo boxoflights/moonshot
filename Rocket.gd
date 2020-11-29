@@ -8,13 +8,12 @@ enum STATES {
 }
 
 var item_return_sound = load("res://SFX/return-pickup.wav")
-
 var state
 var velocity_y = 0
 var acceleration = 32
 
 func _ready():
-	set_state(STATES.REPAIRING_0)
+	set_state(STATES.REPAIRED)
 
 func set_state(new_state):
 	match new_state:
@@ -50,16 +49,19 @@ func set_state(new_state):
 			
 			
 func blast_off():
+	$LiftOffSound.volume_db = -90
 	$Tween.interpolate_property(
 		self,"position",
 		position,Vector2(position.x,-100),
 		3,Tween.TRANS_EXPO,Tween.EASE_IN)
+	$Tween.interpolate_property($LiftOffSound,"volume_db",-90,0,0.5)
 	$Tween.start()
 	$Fire1.emitting = true
 	$Fire2.emitting = true
 	$LiftOffSmokeLeft.emitting = true
 	$LiftOffSmokeRight.emitting = true
 	$LiftOffSmokeCenter.emitting = true
+	$LiftOffSound.play()
 
 func _on_Rocket_body_entered(body):
 	if body.is_in_group("player"):
