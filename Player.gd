@@ -34,6 +34,11 @@ var flicker_time = 0
 
 var block_input = false
 
+var last_checkpoint = position
+
+func _ready():
+	last_checkpoint = position
+
 func get_jetpack_percent():
 	return (1.0 / jet_impulse_time) * jet_impulse_timer
 	

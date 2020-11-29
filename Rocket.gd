@@ -96,4 +96,5 @@ func _on_Rocket_body_entered(body):
 			print("RETURNED")
 			body.has_item = false
 			body.items_returned += 1
+			body.last_checkpoint = position
 			set_state(state + 1)

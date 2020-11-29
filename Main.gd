@@ -11,7 +11,7 @@ func _ready():
 
 func respawn():
 	for c in $Spawns.get_children():
-			c.spawn()
+		c.spawn()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -35,7 +35,8 @@ func _process(delta):
 			if $Player.health <= 0:
 				if $Player.lives > 0:
 					$Player.lives -= 1
-					$Player.position = $Rocket.position
+					$Player.position = $Player.last_checkpoint
+					$Player.health = 100
 		
 			$HUD.set_jetpack_percent($Player.get_jetpack_percent())
 			$HUD.set_fire_percent($Player.get_fire_percent())
