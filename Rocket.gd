@@ -4,11 +4,13 @@ enum STATES {
 	REPAIRING_0,
 	REPAIRING_1,
 	REPAIRING_2,
-	REPAIRED
+	REPAIRED,
+	DOOR_OPENING,
+	DOOR_CLOSING,
+	BLASTOFF,
 }
 
 var item_return_sound = load("res://SFX/return-pickup.wav")
-
 var state
 var velocity_y = 0
 var acceleration = 32
@@ -46,13 +48,45 @@ func set_state(new_state):
 			$Smoke/Smoke3.emitting = false
 			$Smoke/Smoke4.emitting = false
 			state = new_state
+		STATES.DOOR_OPENING:
+			$AnimatedSprite.play("repaired_door_opening")
+			$Smoke/Smoke1.emitting = false
+			$Smoke/Smoke2.emitting = false
+			$Smoke/Smoke3.emitting = false
+			$Smoke/Smoke4.emitting = false
+			state = new_state
+		STATES.DOOR_CLOSING:
+			$AnimatedSprite.play("repaired_door_closing")
+			$Smoke/Smoke1.emitting = false
+			$Smoke/Smoke2.emitting = false
+			$Smoke/Smoke3.emitting = false
+			$Smoke/Smoke4.emitting = false
+			state = new_state
+		STATES.BLASTOFF:
+			$AnimatedSprite.play("repaired")
+			$Smoke/Smoke1.emitting = false
+			$Smoke/Smoke2.emitting = false
+			$Smoke/Smoke3.emitting = false
+			$Smoke/Smoke4.emitting = false
+			state = new_state
+			blast_off()
+		
 			
-
-
-func _process(delta):
-	if state == STATES.REPAIRED:
-		velocity_y += acceleration * delta
-		position.y -= velocity_y * delta
+			
+func blast_off():
+	$LiftOffSound.volume_db = -90
+	$Tween.interpolate_property(
+		self,"position",
+		position,Vector2(position.x,-100),
+		3,Tween.TRANS_EXPO,Tween.EASE_IN)
+	$Tween.interpolate_property($LiftOffSound,"volume_db",-90,0,0.5)
+	$Tween.start()
+	$Fire1.emitting = true
+	$Fire2.emitting = true
+	$LiftOffSmokeLeft.emitting = true
+	$LiftOffSmokeRight.emitting = true
+	$LiftOffSmokeCenter.emitting = true
+	$LiftOffSound.play()
 
 func _on_Rocket_body_entered(body):
 	if body.is_in_group("player"):

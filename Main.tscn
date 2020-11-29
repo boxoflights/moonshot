@@ -580,6 +580,15 @@ position = Vector2( 5092, 120 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_15"]
 
 [node name="HUD" parent="." instance=ExtResource( 12 )]
+
+[node name="Pickup4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 36, 206 )
+
+[node name="Pickup5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 36, 182 )
+
+[node name="Pickup6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 36, 158 )
 [connection signal="body_entered" from="Spawns/Screen_2" to="Spawns/Screen_2" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_3" to="Spawns/Screen_3" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_4" to="Spawns/Screen_4" method="_on_Screen_body_entered"]
