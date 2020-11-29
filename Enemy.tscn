@@ -258,7 +258,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 53 )
 animation = "bite_left"
-frame = 4
+frame = 8
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
