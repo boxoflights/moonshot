@@ -21,8 +21,7 @@ func _physics_process(delta):
 
 func _on_Lazer_body_entered(body):
 	if body.is_in_group("mobs"):
-		body.queue_free()
-		SoundManager.play_sfx(hit_sound)
+		body.die()
 	else:
 		SoundManager.play_sfx(miss_sound)
 	hit = true

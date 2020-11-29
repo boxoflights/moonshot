@@ -14,7 +14,20 @@ var biting = false
 var bitten = true
 
 var bite_sound = load("res://SFX/eye-bite.wav")
+var death_sound = load("res://SFX/enemy-explode.wav")
 var should_play_bite_sound = false
+
+var dead = false
+
+func die():
+	dead = true
+	var dir = "left"
+	if direction.x > 0:
+		dir = "right" 
+	anim = "death_" + dir
+	$AnimatedSprite.play(anim)
+	SoundManager.play_sfx(death_sound)
+
 
 func can_see_player():
 	var p = get_tree().get_current_scene().get_node("Player")
@@ -64,6 +77,7 @@ func animate():
 	$AnimatedSprite.animation = anim + "_" + dir
 
 func _physics_process(delta):
+	if(dead): return
 	animate()
 	
 	if(
@@ -109,4 +123,5 @@ func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.animation.begins_with("bite"):
 		bitten = true
 		biting = false
-	pass # Replace with function body.
+	if $AnimatedSprite.animation.begins_with("death"):
+		queue_free()
