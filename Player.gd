@@ -110,6 +110,7 @@ func respawn():
 	else:
 		print("GAME OVER")
 		dead = true
+		$AnimatedSprite.stop()
 		disappear()
 
 func get_input(delta):

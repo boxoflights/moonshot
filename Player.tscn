@@ -317,7 +317,7 @@ bus = "SFX"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 52 )
 animation = "death_right"
-frame = 7
+frame = 3
 playing = true
 
 [node name="MuzzleFlashRight" type="CPUParticles2D" parent="."]
