@@ -16,7 +16,7 @@ var velocity_y = 0
 var acceleration = 32
 
 func _ready():
-	set_state(STATES.REPAIRING_2)
+	set_state(STATES.REPAIRING_0)
 
 func set_state(new_state):
 	match new_state:
