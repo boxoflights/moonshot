@@ -35,5 +35,9 @@ func spawn():
 
 func _on_Screen_body_entered(body):
 	if body.is_in_group("player"):
-		visited = true
+		visited = true		
 		print("VISITED")
+		var cp = get_node("Checkpoint")
+		if cp:
+			body.last_checkpoint = cp.global_position
+			print("CHECKPOINT")
