@@ -254,4 +254,3 @@ Acid = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 53 )
-frame = 3
