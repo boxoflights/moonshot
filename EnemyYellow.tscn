@@ -417,7 +417,7 @@ Beam = ExtResource( 3 )
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 77 )
 animation = "beam_right"
-frame = 3
+frame = 4
 
 [node name="beam_left" type="Position2D" parent="." index="3"]
 position = Vector2( -3, 0 )
