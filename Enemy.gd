@@ -4,7 +4,7 @@ export (int) var move_speed = 16
 export (int) var swoop_speed = 24
 export (int) var view_dist = 64
 export (int) var field_of_view = 180
-export (int) var bite_damage = 5
+export (int) var bite_damage = 10
 
 var direction = Vector2.ZERO
 var speed = move_speed

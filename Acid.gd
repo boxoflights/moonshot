@@ -5,6 +5,7 @@ var direction = Vector2.DOWN
 var lifetime = 10
 var landed = false
 var hit = false
+var damage = 15
 
 var drop_sound = load("res://SFX/acid-drop.wav")
 
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	if hit:
 		var p = get_tree().get_current_scene().get_node("Player")
 		if p:
-			p.take_damage(5 * delta)
+			p.take_damage(damage * delta)
 	
 	if lifetime > 0:
 		lifetime -= delta
