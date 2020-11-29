@@ -128,6 +128,7 @@ position = Vector2( 694, 20 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_2/Layer_2" instance=ExtResource( 13 )]
 position = Vector2( 639, 64 )
+bite_damage = 10
 
 [node name="Layer_3" type="Node" parent="Spawns/Screen_2"]
 
@@ -144,6 +145,7 @@ position = Vector2( 492, 101 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_2/Layer_4" instance=ExtResource( 13 )]
 position = Vector2( 400, 92 )
+bite_damage = 10
 
 [node name="Layer_5" type="Node" parent="Spawns/Screen_2"]
 
@@ -157,9 +159,11 @@ position = Vector2( 464, 204 )
 
 [node name="EnemyYellow" parent="Spawns/Screen_2/Layer_6" instance=ExtResource( 14 )]
 position = Vector2( 306, 64 )
+bite_damage = 10
 
 [node name="EnemyGreen" parent="Spawns/Screen_2/Layer_6" instance=ExtResource( 13 )]
 position = Vector2( 510, 68 )
+bite_damage = 10
 
 [node name="Enemy" parent="Spawns/Screen_2/Layer_6" instance=ExtResource( 9 )]
 position = Vector2( 718, 16 )
@@ -180,6 +184,7 @@ shape = SubResource( 1 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_3/Layer_1" instance=ExtResource( 13 )]
 position = Vector2( 974, 75 )
+bite_damage = 10
 
 [node name="Layer_2" type="Node" parent="Spawns/Screen_3"]
 
@@ -204,11 +209,13 @@ position = Vector2( 809, 116 )
 
 [node name="EnemyYellow" parent="Spawns/Screen_3/Layer_4" instance=ExtResource( 14 )]
 position = Vector2( 823, 132 )
+bite_damage = 10
 
 [node name="Layer_5" type="Node" parent="Spawns/Screen_3"]
 
 [node name="EnemyGreen" parent="Spawns/Screen_3/Layer_5" instance=ExtResource( 13 )]
 position = Vector2( 847, 20 )
+bite_damage = 10
 
 [node name="Layer_6" type="Node" parent="Spawns/Screen_3"]
 
@@ -262,6 +269,7 @@ position = Vector2( 1620, 132 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_5/Layer_2" instance=ExtResource( 13 )]
 position = Vector2( 1568, 120 )
+bite_damage = 10
 
 [node name="Layer_3" type="Node" parent="Spawns/Screen_5"]
 
@@ -275,6 +283,7 @@ position = Vector2( 1680, 132 )
 
 [node name="EnemyYellow" parent="Spawns/Screen_5/Layer_4" instance=ExtResource( 14 )]
 position = Vector2( 1620, 241 )
+bite_damage = 10
 
 [node name="Layer_5" type="Node" parent="Spawns/Screen_5"]
 
@@ -291,6 +300,7 @@ position = Vector2( 1757, 52 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_5/Layer_6" instance=ExtResource( 13 )]
 position = Vector2( 1670, 120 )
+bite_damage = 10
 
 [node name="Screen_6" type="Area2D" parent="Spawns"]
 visible = false
@@ -321,11 +331,13 @@ position = Vector2( 2122, 169 )
 
 [node name="EnemyYellow" parent="Spawns/Screen_6/Layer_3" instance=ExtResource( 14 )]
 position = Vector2( 2072, 120 )
+bite_damage = 10
 
 [node name="Layer_4" type="Node" parent="Spawns/Screen_6"]
 
 [node name="EnemyGreen" parent="Spawns/Screen_6/Layer_4" instance=ExtResource( 13 )]
 position = Vector2( 2110, 68 )
+bite_damage = 10
 
 [node name="Layer_5" type="Node" parent="Spawns/Screen_6"]
 
@@ -386,6 +398,7 @@ position = Vector2( 2721, 174 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_8/Layer_3" instance=ExtResource( 13 )]
 position = Vector2( 2728, 16 )
+bite_damage = 10
 
 [node name="Layer_4" type="Node" parent="Spawns/Screen_8"]
 
@@ -396,6 +409,7 @@ position = Vector2( 2574, 64 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_8/Layer_5" instance=ExtResource( 13 )]
 position = Vector2( 2625, 132 )
+bite_damage = 10
 
 [node name="Layer_6" type="Node" parent="Spawns/Screen_8"]
 
@@ -441,6 +455,7 @@ position = Vector2( 2948, 116 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_9/Layer_5" instance=ExtResource( 13 )]
 position = Vector2( 3053, 156 )
+bite_damage = 10
 
 [node name="Layer_6" type="Node" parent="Spawns/Screen_9"]
 
@@ -503,11 +518,13 @@ position = Vector2( 3624, 180 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_11/Layer_2" instance=ExtResource( 13 )]
 position = Vector2( 3926, 29 )
+bite_damage = 10
 
 [node name="Layer_3" type="Node" parent="Spawns/Screen_11"]
 
 [node name="EnemyGreen" parent="Spawns/Screen_11/Layer_3" instance=ExtResource( 13 )]
 position = Vector2( 3699, 168 )
+bite_damage = 10
 
 [node name="Enemy" parent="Spawns/Screen_11/Layer_3" instance=ExtResource( 9 )]
 position = Vector2( 3867, 64 )
@@ -519,6 +536,7 @@ position = Vector2( 3867, 88 )
 
 [node name="EnemyYellow" parent="Spawns/Screen_11/Layer_4" instance=ExtResource( 14 )]
 position = Vector2( 3785, 24 )
+bite_damage = 10
 
 [node name="Layer_5" type="Node" parent="Spawns/Screen_11"]
 
@@ -535,6 +553,7 @@ position = Vector2( 3902, 64 )
 
 [node name="EnemyYellow" parent="Spawns/Screen_11/Layer_6" instance=ExtResource( 14 )]
 position = Vector2( 3611, 150 )
+bite_damage = 10
 
 [node name="Screen_12" type="Area2D" parent="Spawns"]
 visible = false
@@ -558,6 +577,7 @@ position = Vector2( 4164, 204 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_12/Layer_1" instance=ExtResource( 13 )]
 position = Vector2( 4188, 29 )
+bite_damage = 10
 
 [node name="Layer_2" type="Node" parent="Spawns/Screen_12"]
 
@@ -565,6 +585,7 @@ position = Vector2( 4188, 29 )
 
 [node name="EnemyYellow" parent="Spawns/Screen_12/Layer_3" instance=ExtResource( 14 )]
 position = Vector2( 4307, 108 )
+bite_damage = 10
 
 [node name="Layer_4" type="Node" parent="Spawns/Screen_12"]
 
@@ -572,6 +593,7 @@ position = Vector2( 4307, 108 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_12/Layer_5" instance=ExtResource( 13 )]
 position = Vector2( 4164, 154 )
+bite_damage = 10
 
 [node name="Enemy" parent="Spawns/Screen_12/Layer_5" instance=ExtResource( 9 )]
 position = Vector2( 4116, 96 )
@@ -596,6 +618,7 @@ shape = SubResource( 1 )
 
 [node name="EnemyGreen" parent="Spawns/Screen_13/Layer_1" instance=ExtResource( 13 )]
 position = Vector2( 4546, 112 )
+bite_damage = 10
 
 [node name="Layer_2" type="Node" parent="Spawns/Screen_13"]
 
@@ -623,11 +646,13 @@ shape = SubResource( 1 )
 
 [node name="EnemyYellow" parent="Spawns/Screen_14/Layer_1" instance=ExtResource( 14 )]
 position = Vector2( 4857, 88 )
+bite_damage = 10
 
 [node name="Layer_2" type="Node" parent="Spawns/Screen_14"]
 
 [node name="EnemyYellow" parent="Spawns/Screen_14/Layer_2" instance=ExtResource( 14 )]
 position = Vector2( 5030, 192 )
+bite_damage = 10
 
 [node name="Layer_3" type="Node" parent="Spawns/Screen_14"]
 

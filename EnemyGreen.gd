@@ -38,5 +38,7 @@ func drop():
 		drop_timer = drop_time
 
 func _physics_process(delta):
+	if(dead):
+		return
 	if drop_timer > 0:
 		drop_timer -= delta
