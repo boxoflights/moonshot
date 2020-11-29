@@ -46,13 +46,20 @@ func set_state(new_state):
 			$Smoke/Smoke3.emitting = false
 			$Smoke/Smoke4.emitting = false
 			state = new_state
+			blast_off()
 			
-
-
-func _process(delta):
-	if state == STATES.REPAIRED:
-		velocity_y += acceleration * delta
-		position.y -= velocity_y * delta
+			
+func blast_off():
+	$Tween.interpolate_property(
+		self,"position",
+		position,Vector2(position.x,-100),
+		3,Tween.TRANS_EXPO,Tween.EASE_IN)
+	$Tween.start()
+	$Fire1.emitting = true
+	$Fire2.emitting = true
+	$LiftOffSmokeLeft.emitting = true
+	$LiftOffSmokeRight.emitting = true
+	$LiftOffSmokeCenter.emitting = true
 
 func _on_Rocket_body_entered(body):
 	if body.is_in_group("player"):
