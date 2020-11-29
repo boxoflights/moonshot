@@ -20,6 +20,8 @@ var should_play_bite_sound = false
 var dead = false
 
 func die():
+	if($Body):
+		remove_child($Body)
 	dead = true
 	var dir = "left"
 	if direction.x > 0:
@@ -32,7 +34,7 @@ func die():
 func can_see_player():
 	var p = get_tree().get_current_scene().get_node("Player")
 	if p:
-		var player_direction = p.position - position
+		var player_direction = p.get_node("EnemyTargetPoint").global_position - position
 		if player_direction.length() < view_dist:
 			var angle = acos(player_direction.normalized().dot(direction))
 			if  rad2deg(angle) < field_of_view:
@@ -77,8 +79,11 @@ func animate():
 	$AnimatedSprite.animation = anim + "_" + dir
 
 func _physics_process(delta):
-	if(dead): return
+	if(dead):
+		return
 	animate()
+
+	var player_direction = can_see_player()
 	
 	if(
 		anim == "bite" &&
@@ -86,6 +91,8 @@ func _physics_process(delta):
 		$AnimatedSprite.frame == 8
 	):
 		SoundManager.play_sfx(bite_sound)
+		if(player_direction):
+			damage_player(player_direction.normalized(), bite_damage, 64, 0.5)
 		should_play_bite_sound = false
 	
 	move_and_slide(direction * speed, Vector2(0, -1))
@@ -100,13 +107,10 @@ func _physics_process(delta):
 	
 	if idle_timer > 0:
 		idle_timer -= delta
-	
-	var player_direction = can_see_player()
+
 	
 	
 	if !biting && can_bite:
-		if bitten && player_direction:
-			damage_player(player_direction.normalized(), bite_damage, 64, 0.5)
 		bite_player(delta)
 	elif player_direction != null:
 		sees_player(delta, player_direction)
