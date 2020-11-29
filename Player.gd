@@ -34,6 +34,8 @@ var flicker_time = 0
 
 var block_input = false
 
+var dying = false
+var dead = false
 var last_checkpoint = position
 
 func _ready():
@@ -55,7 +57,7 @@ func knock_back(knocked_direction, amount, time):
 
 func take_damage(dmg):
 	health -= dmg
-	flicker_time = 1.0
+	flicker_time = 0.25
 
 func regenerate_health(delta):
 	if(health < max_health):
@@ -90,6 +92,26 @@ func turn_jetpack_off():
 	jet_left.emitting = false
 	jet_right.emitting = false
 	jetpack_on = false
+	
+func die():
+	print("DIE")
+	$AnimatedSprite.modulate = Color(1, 1, 1, 1)
+	lives -= 1
+	dying = true
+	sprite.play("death_" + dir)
+
+func respawn():
+	if lives > 0:
+		print("RESPAWN")
+		dying = false
+		position = last_checkpoint
+		visible = true
+		health = 100
+	else:
+		print("GAME OVER")
+		dead = true
+		$AnimatedSprite.stop()
+		disappear()
 
 func get_input(delta):
 	if(block_input): return
@@ -180,20 +202,19 @@ func get_input(delta):
 		flicker = !flicker
 	else:
 		$AnimatedSprite.modulate = Color(1, 1, 1)
-		
-#func check_collision(delta):
-#	for i in get_slide_count():
-#		var collision = get_slide_collision(i)
-#		if collision.collider.is_in_group("pickup"):
-#			var c = collision.collider as Area2D
-#			if !has_item:
-#				has_item = true
-#				c.queue_free()
 
 func _physics_process(delta):
-	if visible:
-		regenerate_health(delta)
-		get_input(delta)
-		move_and_slide(velocity, Vector2(0, -1))
-		if position.y > 290:
-			health = 0
+	if !dead && !dying:
+		if health <= 0:
+			die()
+		elif visible:
+			regenerate_health(delta)
+			get_input(delta)
+			move_and_slide(velocity, Vector2(0, -1))
+			if position.y > 290:
+				health = 0
+
+
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation.begins_with("death"):
+		respawn()

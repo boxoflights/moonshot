@@ -33,7 +33,7 @@ func die():
 
 func can_see_player():
 	var p = get_tree().get_current_scene().get_node("Player")
-	if p:
+	if p && p.visible:
 		var player_direction = p.get_node("EnemyTargetPoint").global_position - position
 		if player_direction.length() < view_dist:
 			var angle = acos(player_direction.normalized().dot(direction))
