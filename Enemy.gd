@@ -20,7 +20,8 @@ var should_play_bite_sound = false
 var dead = false
 
 func die():
-	remove_child($Body)
+	if($Body):
+		remove_child($Body)
 	dead = true
 	var dir = "left"
 	if direction.x > 0:
@@ -78,7 +79,8 @@ func animate():
 	$AnimatedSprite.animation = anim + "_" + dir
 
 func _physics_process(delta):
-	if(dead): return
+	if(dead):
+		return
 	animate()
 	
 	if(
