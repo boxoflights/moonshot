@@ -35,6 +35,7 @@ func _process(delta):
 			if $Player.health <= 0:
 				if $Player.lives > 0:
 					$Player.lives -= 1
+					$Player.health = 100
 					$Player.position = $Rocket.position
 		
 			$HUD.set_jetpack_percent($Player.get_jetpack_percent())

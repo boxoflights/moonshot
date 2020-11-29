@@ -20,6 +20,7 @@ var should_play_bite_sound = false
 var dead = false
 
 func die():
+	remove_child($Body)
 	dead = true
 	var dir = "left"
 	if direction.x > 0:
