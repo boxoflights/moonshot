@@ -18,7 +18,7 @@ var dont_play_menu_change_sound = false
 
 var intro = false
 var intro_index = 0
-var intro_time = 4
+var intro_time = 5
 var intro_timer = intro_time
 
 func _ready():
@@ -56,6 +56,8 @@ func _process(delta):
 		var t = $Intro.get_children()
 		if intro_timer > 0:
 			intro_timer -= delta
+			if intro_timer >= intro_time - 1:
+				t[intro_index].modulate = Color(1, 1, 1, intro_time - intro_timer)
 			if intro_timer <= 1:
 				t[intro_index].modulate = Color(1, 1, 1, intro_timer)
 		else:
