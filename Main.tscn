@@ -690,6 +690,8 @@ position = Vector2( 5092, 96 )
 [node name="Layer_6" type="Node" parent="Spawns/Screen_15"]
 
 [node name="HUD" parent="." instance=ExtResource( 12 )]
+[connection signal="game_win" from="Rocket" to="." method="game_over"]
+[connection signal="gameover" from="Player" to="HUD" method="game_over"]
 [connection signal="body_entered" from="Spawns/Screen_2" to="Spawns/Screen_2" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_3" to="Spawns/Screen_3" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_4" to="Spawns/Screen_4" method="_on_Screen_body_entered"]

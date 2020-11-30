@@ -36,3 +36,7 @@ func _process(delta):
 			$HUD.set_fire_percent($Player.get_fire_percent())
 			$HUD.set_health_percent($Player.get_health_percent())
 			$HUD.set_current_lives($Player.lives)
+
+
+func game_over():
+	pass # Replace with function body.
