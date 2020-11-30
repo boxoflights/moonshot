@@ -274,7 +274,7 @@ smoothing_speed = 1.0
 
 [node name="bofl-logo" type="Sprite" parent="."]
 position = Vector2( 184, -127 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 8 )
 [connection signal="pressed" from="MainMenu/Buttons/PLAY" to="." method="_on_PLAY_pressed"]
 [connection signal="pressed" from="MainMenu/Buttons/OPTIONS" to="." method="_on_OPTIONS_pressed"]
