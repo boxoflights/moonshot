@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/moonshot-intro.ogg-3a81c239c8fc1d135411321725e33518.oggstr"
+
+[deps]
+
+source_file="res://moonshot-intro.ogg"
+dest_files=[ "res://.import/moonshot-intro.ogg-3a81c239c8fc1d135411321725e33518.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
