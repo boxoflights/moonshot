@@ -13,6 +13,8 @@ var idle_timer = 2
 var biting = false
 var bitten = true
 
+var target_offset = Vector2(2, -14)
+
 var bite_sound = load("res://SFX/eye-bite.wav")
 var death_sound = load("res://SFX/enemy-explode.wav")
 var should_play_bite_sound = false
@@ -34,7 +36,7 @@ func die():
 func can_see_player():
 	var p = get_tree().get_current_scene().get_node("Player")
 	if p && p.visible:
-		var player_direction = p.get_node("EnemyTargetPoint").global_position - position
+		var player_direction = (p.position + target_offset) - position
 		if player_direction.length() < view_dist:
 			var angle = acos(player_direction.normalized().dot(direction))
 			if  rad2deg(angle) < field_of_view:
