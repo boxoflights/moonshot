@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export (PackedScene) var Lazer
 
+signal gameover
+
 const GRAVITY = 48.0
 
 export (int) var walk_speed = 32
@@ -20,7 +22,7 @@ var fire_cooldown_timer = 0
 var jet_impulse_timer = jet_impulse_time
 var health = 100
 var max_health = 100
-var lives = 3
+var lives = 1
 var has_item = false
 var items_returned = 0
 
@@ -112,6 +114,7 @@ func respawn():
 		health = 100
 	else:
 		print("GAME OVER")
+		emit_signal("gameover")
 		dead = true
 		$AnimatedSprite.stop()
 		disappear()

@@ -26,3 +26,15 @@ func set_current_lives(new_lives):
 
 func set_health_percent(v):
 	$Theme/Health/ProgressBar.value = v
+
+func game_over():
+	$Theme/EndGame/Title.text = "GAMEOVER"
+	$Theme/EndGame.show()
+	
+func game_win():
+	$Theme/EndGame/Title.text = "YOU WIN!"
+	$Theme/EndGame.show()
+
+
+func _return_to_menu():
+		get_tree().change_scene("res://start_menu/StartMenu.tscn")
