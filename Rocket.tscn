@@ -23,69 +23,69 @@ region = Rect2( 288, 0, 96, 144 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 96, 144 )
+region = Rect2( 0, 0, 96, 144 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 96, 144 )
+region = Rect2( 192, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
 region = Rect2( 864, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
 region = Rect2( 960, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
 region = Rect2( 1056, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 1 )
 region = Rect2( 1152, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 1 )
 region = Rect2( 1248, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 1 )
 region = Rect2( 1344, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 1 )
 region = Rect2( 1440, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 1 )
 region = Rect2( 1536, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 1 )
 region = Rect2( 1632, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 1 )
 region = Rect2( 384, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 1 )
 region = Rect2( 480, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 1 )
 region = Rect2( 576, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 1 )
 region = Rect2( 672, 0, 96, 144 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 1 )
 region = Rect2( 768, 0, 96, 144 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=21]
 animations = [ {
 "frames": [ SubResource( 3 ) ],
 "loop": true,
@@ -99,32 +99,32 @@ animations = [ {
 }, {
 "frames": [ SubResource( 5 ) ],
 "loop": true,
-"name": "repairing_1",
+"name": "repaired",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 6 ) ],
 "loop": true,
-"name": "repaired",
+"name": "repairing_1",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": false,
 "name": "repaired_door_closing",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": false,
 "name": "repaired_door_opening",
 "speed": 10.0
 } ]
 
-[sub_resource type="Curve" id=8]
+[sub_resource type="Curve" id=22]
 _data = [ Vector2( 0, 0 ), 0.0, -0.398371, 0, 0, Vector2( 1, 1 ), -0.135917, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=9]
+[sub_resource type="Gradient" id=23]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.192157 )
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=24]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.98062, 0.181818 ), -1.99364, 0.0, 0, 0 ]
 
 [node name="Rocket" type="Area2D" groups=[
@@ -161,7 +161,7 @@ position = Vector2( 0, 40 )
 shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 7 )
+frames = SubResource( 21 )
 
 [node name="Smoke" type="Node2D" parent="."]
 
@@ -176,8 +176,8 @@ angular_velocity = 10.0
 angular_velocity_random = 1.0
 radial_accel = 3.83
 radial_accel_random = 0.33
-scale_amount_curve = SubResource( 8 )
-color_ramp = SubResource( 9 )
+scale_amount_curve = SubResource( 22 )
+color_ramp = SubResource( 23 )
 
 [node name="Smoke2" type="CPUParticles2D" parent="Smoke"]
 position = Vector2( -23.9385, -15.4341 )
@@ -190,8 +190,8 @@ angular_velocity = 10.0
 angular_velocity_random = 1.0
 radial_accel = 3.83
 radial_accel_random = 0.33
-scale_amount_curve = SubResource( 8 )
-color_ramp = SubResource( 9 )
+scale_amount_curve = SubResource( 22 )
+color_ramp = SubResource( 23 )
 
 [node name="Smoke3" type="CPUParticles2D" parent="Smoke"]
 position = Vector2( 5.03968, -0.944958 )
@@ -204,8 +204,8 @@ angular_velocity = 10.0
 angular_velocity_random = 1.0
 radial_accel = 3.83
 radial_accel_random = 0.33
-scale_amount_curve = SubResource( 8 )
-color_ramp = SubResource( 9 )
+scale_amount_curve = SubResource( 22 )
+color_ramp = SubResource( 23 )
 
 [node name="Smoke4" type="CPUParticles2D" parent="Smoke"]
 position = Vector2( -5.66965, 34.6478 )
@@ -218,8 +218,8 @@ angular_velocity = 10.0
 angular_velocity_random = 1.0
 radial_accel = 3.83
 radial_accel_random = 0.33
-scale_amount_curve = SubResource( 8 )
-color_ramp = SubResource( 9 )
+scale_amount_curve = SubResource( 22 )
+color_ramp = SubResource( 23 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -234,7 +234,7 @@ direction = Vector2( 10, -10 )
 spread = 23.55
 initial_velocity = 40.0
 scale_amount = 1.5
-scale_amount_curve = SubResource( 10 )
+scale_amount_curve = SubResource( 24 )
 
 [node name="LiftOffSmokeCenter" type="CPUParticles2D" parent="."]
 position = Vector2( 0, 64 )
@@ -247,7 +247,7 @@ direction = Vector2( 0, -10 )
 spread = 23.55
 initial_velocity = 40.0
 scale_amount = 1.5
-scale_amount_curve = SubResource( 10 )
+scale_amount_curve = SubResource( 24 )
 
 [node name="LiftOffSmokeLeft" type="CPUParticles2D" parent="."]
 position = Vector2( -8, 64 )
@@ -260,7 +260,7 @@ direction = Vector2( -10, -10 )
 spread = 23.55
 initial_velocity = 40.0
 scale_amount = 1.5
-scale_amount_curve = SubResource( 10 )
+scale_amount_curve = SubResource( 24 )
 
 [node name="LiftOffSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
