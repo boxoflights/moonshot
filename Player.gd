@@ -38,6 +38,8 @@ var dying = false
 var dead = false
 var last_checkpoint = position
 
+var death_sound = load("res://SFX/player-death.wav")
+
 func _ready():
 	last_checkpoint = position
 
@@ -95,6 +97,7 @@ func turn_jetpack_off():
 	
 func die():
 	print("DIE")
+	SoundManager.play_sfx(death_sound)
 	$AnimatedSprite.modulate = Color(1, 1, 1, 1)
 	lives -= 1
 	dying = true
