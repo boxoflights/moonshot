@@ -26,7 +26,7 @@ func sees_player(delta, player_direction):
 		
 		flank += flank_dir
 			
-		orig_pos += Vector2(flank, -64)
+		orig_pos += Vector2(flank, -32)
 		orig_pos -= position
 		.sees_player(delta, orig_pos)
 
