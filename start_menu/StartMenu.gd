@@ -38,8 +38,14 @@ func _process(delta):
 			if(!SoundManager.is_music_playing()):
 				SoundManager.play_music(music)
 			init = true
-	var comet = get_node("ParallaxBackground").get_node("ParallaxLayer2").get_node("Comet")		
-	comet.position += Vector2(-150, 98).normalized() * (delta * 10)
+			
+	var comet = get_node("ParallaxBackground").get_node("ParallaxLayer2").get_node("Comet")
+	if comet.position.y < 80:
+		comet.position += Vector2(-150, 98).normalized() * (delta * 15)
+	else:
+		var crash = get_node("ParallaxBackground").get_node("ParallaxLayer2").get_node("Crash")
+		if !crash.emitting:
+			crash.emitting = true
 
 func set_view(new_view):
 	match new_view:
