@@ -22,7 +22,7 @@ _data = [ Vector2( 0, 0 ), 0.0, -0.398371, 0, 0, Vector2( 1, 1 ), -0.135917, 0.0
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.192157 )
 
 [sub_resource type="DynamicFont" id=1]
-size = 64
+size = 32
 outline_size = 2
 outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
 font_data = ExtResource( 2 )
@@ -189,6 +189,86 @@ margin_right = 120.0
 margin_bottom = 98.6826
 mouse_default_cursor_shape = 2
 text = "QUIT"
+
+[node name="Intro" type="Control" parent="."]
+visible = false
+margin_right = 360.0
+margin_bottom = 240.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Text_1" type="Label" parent="Intro"]
+margin_left = 32.0
+margin_top = 64.0
+margin_right = 328.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 1 )
+text = "Crashed on a 
+desolate moon ..."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text_2" type="Label" parent="Intro"]
+visible = false
+margin_top = 64.0
+margin_right = 364.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 1 )
+text = "only 1 shot at getting
+ off this rock alive!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text_3" type="Label" parent="Intro"]
+visible = false
+margin_top = 64.0
+margin_right = 364.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 1 )
+text = "3 repair modules,
+scattered in the crash."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text_4" type="Label" parent="Intro"]
+visible = false
+margin_top = 64.0
+margin_right = 364.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 1 )
+text = "I can only carry one
+back at a time."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text_5" type="Label" parent="Intro"]
+visible = false
+margin_top = 64.0
+margin_right = 364.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 1 )
+text = "Looks like I've disturbed
+the locals too!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="OptionsMenu" type="Control" parent="."]
 margin_left = 360.0
