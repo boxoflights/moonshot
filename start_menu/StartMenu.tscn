@@ -159,6 +159,7 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 8 )
 
 [node name="Credits" type="Control" parent="."]
+visible = false
 margin_left = 1.0
 margin_top = -239.0
 margin_right = 361.0
