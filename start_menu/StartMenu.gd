@@ -65,6 +65,7 @@ func _process(delta):
 				t[intro_index].visible = true
 				intro_timer = intro_time
 			else:
+				intro = false
 				fade_out()
 				
 
