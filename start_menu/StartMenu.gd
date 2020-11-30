@@ -16,6 +16,11 @@ var ident_time = 2
 
 var dont_play_menu_change_sound = false
 
+var intro = false
+var intro_index = 0
+var intro_time = 4
+var intro_timer = intro_time
+
 func _ready():
 	set_view(views.IDENT)
 	SoundManager._apply_audio_settings()
@@ -46,6 +51,23 @@ func _process(delta):
 		var crash = get_node("ParallaxBackground").get_node("ParallaxLayer2").get_node("Crash")
 		if !crash.emitting:
 			crash.emitting = true
+			
+	if intro:
+		var t = $Intro.get_children()
+		if intro_timer > 0:
+			intro_timer -= delta
+			if intro_timer <= 1:
+				t[intro_index].modulate = Color(1, 1, 1, intro_timer)
+		else:
+			if intro_index < $Intro.get_child_count() - 1:
+				t[intro_index].visible = false
+				intro_index += 1
+				t[intro_index].visible = true
+				intro_timer = intro_time
+			else:
+				intro = false
+				fade_out()
+				
 
 func set_view(new_view):
 	match new_view:
@@ -72,6 +94,11 @@ func _on_OptionsBack_pressed():
 	set_view(views.MAINMENU)
 
 func _on_PLAY_pressed():
+	intro = true
+	$Intro.visible = true
+	$MainMenu.visible = false
+	
+func fade_out():
 	$Fade/Tween.interpolate_property($Fade,"modulate",
 		Color(0,0,0,0),Color(0,0,0,1),0.5)
 	$Fade/Tween.interpolate_callback(self,1,"_start_game")

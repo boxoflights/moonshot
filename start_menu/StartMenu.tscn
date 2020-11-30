@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://ui/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/avenixel-regular.tres" type="DynamicFontData" id=2]
@@ -11,33 +11,39 @@
 [ext_resource path="res://object.rocket.png" type="Texture" id=9]
 [ext_resource path="res://effect.smoke.png" type="Texture" id=10]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.172515, 0.30117, 0.385965, 1 )
 colors = PoolColorArray( 0.821777, 0.118835, 0.0385208, 1, 0.917502, 0.503022, 0.189496, 1, 0.912696, 0.672694, 0.142283, 1, 0.908691, 0.846529, 0.102938, 1, 1, 1, 1, 1 )
 
-[sub_resource type="Curve" id=22]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0 ), 0.0, -0.398371, 0, 0, Vector2( 1, 1 ), -0.135917, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=23]
+[sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.192157 )
 
-[sub_resource type="DynamicFont" id=1]
-size = 64
-outline_size = 2
-outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=8]
 size = 48
 outline_size = 2
 outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
+size = 32
+outline_size = 2
 outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="Theme" id=4]
+[sub_resource type="DynamicFont" id=5]
+size = 48
+outline_size = 2
+outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=7]
 Label/colors/font_color = Color( 0.823529, 0.415686, 0.619608, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
@@ -45,7 +51,7 @@ Label/constants/line_spacing = 3
 Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
-Label/fonts/font = SubResource( 3 )
+Label/fonts/font = SubResource( 6 )
 Label/styles/normal = null
 
 [node name="StartMenu" type="Node2D"]
@@ -59,7 +65,7 @@ motion_scale = Vector2( 0, 0 )
 motion_offset = Vector2( 0, 1 )
 
 [node name="paralaxbackground" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( -4, 0 )
+position = Vector2( -4, -1 )
 texture = ExtResource( 3 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -77,7 +83,7 @@ lifetime_randomness = 0.35
 emission_shape = 1
 emission_sphere_radius = 2.5
 gravity = Vector2( 150, -98 )
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2/Comet"]
 show_behind_parent = true
@@ -100,8 +106,8 @@ angular_velocity = 10.0
 angular_velocity_random = 1.0
 radial_accel = 3.83
 radial_accel_random = 0.33
-scale_amount_curve = SubResource( 22 )
-color_ramp = SubResource( 23 )
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -146,7 +152,7 @@ margin_left = 32.0
 margin_top = 8.0
 margin_right = 328.0
 margin_bottom = 72.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 8 )
 text = "MOONSHOT"
 align = 1
 valign = 1
@@ -190,6 +196,86 @@ margin_bottom = 98.6826
 mouse_default_cursor_shape = 2
 text = "QUIT"
 
+[node name="Intro" type="Control" parent="."]
+visible = false
+margin_right = 360.0
+margin_bottom = 240.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Text_1" type="Label" parent="Intro"]
+margin_left = 32.0
+margin_top = 64.0
+margin_right = 328.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 4 )
+text = "Crashed on a 
+desolate moon ..."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text_2" type="Label" parent="Intro"]
+visible = false
+margin_top = 64.0
+margin_right = 364.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 4 )
+text = "only 1 shot at getting
+ off this rock alive!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text_3" type="Label" parent="Intro"]
+visible = false
+margin_top = 64.0
+margin_right = 364.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 4 )
+text = "3 repair modules,
+scattered in the crash."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text_4" type="Label" parent="Intro"]
+visible = false
+margin_top = 64.0
+margin_right = 364.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 4 )
+text = "I can only carry one
+back at a time."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text_5" type="Label" parent="Intro"]
+visible = false
+margin_top = 64.0
+margin_right = 364.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 4 )
+text = "Looks like I've disturbed
+the locals too!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="OptionsMenu" type="Control" parent="."]
 margin_left = 360.0
 margin_right = 720.0
@@ -204,7 +290,7 @@ margin_left = 32.0
 margin_top = 8.0
 margin_right = 328.0
 margin_bottom = 72.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "OPTIONS"
 align = 1
 valign = 1
@@ -214,7 +300,7 @@ margin_left = 120.0
 margin_top = 64.0
 margin_right = 240.0
 margin_bottom = 224.0
-theme = SubResource( 4 )
+theme = SubResource( 7 )
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
