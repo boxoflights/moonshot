@@ -3,6 +3,9 @@ extends CanvasLayer
 var current_lives = 0
 var lives_icon = load("res://ui/ui.life.png")
 
+func set_has_item(has = false):
+	$uirepairkit.visible = has
+
 func set_jetpack_percent(v):
 	$Theme/JetPack/ProgressBar.value = v
 
