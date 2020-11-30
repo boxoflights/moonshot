@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://ui/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/avenixel-regular.tres" type="DynamicFontData" id=2]
@@ -9,10 +9,17 @@
 [ext_resource path="res://start_menu/StartMenu.gd" type="Script" id=7]
 [ext_resource path="res://bofl-logo.png" type="Texture" id=8]
 [ext_resource path="res://object.rocket.png" type="Texture" id=9]
+[ext_resource path="res://effect.smoke.png" type="Texture" id=10]
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.172515, 0.30117, 0.385965, 1 )
 colors = PoolColorArray( 0.821777, 0.118835, 0.0385208, 1, 0.917502, 0.503022, 0.189496, 1, 0.912696, 0.672694, 0.142283, 1, 0.908691, 0.846529, 0.102938, 1, 1, 1, 1, 1 )
+
+[sub_resource type="Curve" id=22]
+_data = [ Vector2( 0, 0 ), 0.0, -0.398371, 0, 0, Vector2( 1, 1 ), -0.135917, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=23]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.192157 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -80,6 +87,24 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 96, 128 )
+
+[node name="Crash" type="CPUParticles2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -146, 64 )
+emitting = false
+speed_scale = 0.5
+texture = ExtResource( 10 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector2( 0, -50 )
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+radial_accel = 3.83
+radial_accel_random = 0.33
+scale_amount_curve = SubResource( 22 )
+color_ramp = SubResource( 23 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="paralaxmountains" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2( 176, 6 )
