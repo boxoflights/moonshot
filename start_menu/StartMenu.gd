@@ -7,7 +7,7 @@ enum views {
 }
 
 var current_view = views.IDENT
-var music = load("res://moonshot-theme.ogg")
+var music = load("res://moonshot-intro.ogg")
 var menu_change_sfx = load("res://SFX/menuChange.wav")
 
 var init = false
