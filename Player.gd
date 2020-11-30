@@ -211,7 +211,7 @@ func _physics_process(delta):
 		if health <= 0:
 			die()
 		elif visible:
-			regenerate_health(delta)
+			#regenerate_health(delta)
 			get_input(delta)
 			move_and_slide(velocity, Vector2(0, -1))
 			if position.y > 290:
