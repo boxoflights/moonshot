@@ -1,5 +1,7 @@
 extends Area2D
 
+signal game_win
+
 enum STATES {
 	REPAIRING_0,
 	REPAIRING_1,
@@ -80,6 +82,7 @@ func blast_off():
 		position,Vector2(position.x,-100),
 		3,Tween.TRANS_EXPO,Tween.EASE_IN)
 	$Tween.interpolate_property($LiftOffSound,"volume_db",-90,0,0.5)
+	$Tween.interpolate_callback(self,4,"emit_signal","game_win")
 	$Tween.start()
 	$Fire1.emitting = true
 	$Fire2.emitting = true
