@@ -3,7 +3,8 @@ extends Node2D
 enum views {
 	IDENT,
 	MAINMENU,
-	OPTIONS
+	OPTIONS,
+	CREDITS
 }
 
 var current_view = views.IDENT
@@ -20,6 +21,10 @@ var intro = false
 var intro_index = 0
 var intro_time = 5
 var intro_timer = intro_time
+
+var credits = false
+var credits_timer = 0
+var credits_time = 5
 
 func _ready():
 	set_view(views.IDENT)
@@ -70,6 +75,12 @@ func _process(delta):
 				intro = false
 				fade_out()
 				
+	if credits:
+		if credits_timer > 0:
+			credits_timer -= delta
+		else:
+			credits = false
+			set_view(views.MAINMENU)
 
 func set_view(new_view):
 	match new_view:
@@ -81,6 +92,11 @@ func set_view(new_view):
 		views.OPTIONS:
 			dont_play_menu_change_sound = true
 			$Camera.position = Vector2(360,0)
+		views.CREDITS:
+			$Credits.visible = true
+			credits = true
+			credits_timer = credits_time
+			$Camera.position = Vector2(0,-240)
 	
 	if current_view == views.IDENT:
 		$Camera.smoothing_speed = 1
@@ -126,3 +142,7 @@ func _play_ui_sound():
 		dont_play_menu_change_sound = false
 	else:
 		SoundManager.play_sfx(menu_change_sfx)
+
+
+func _on_CREDITS_pressed():
+	set_view(views.CREDITS)
