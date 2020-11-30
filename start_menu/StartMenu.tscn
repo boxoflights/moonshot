@@ -159,7 +159,6 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 8 )
 
 [node name="Credits" type="Control" parent="."]
-visible = false
 margin_left = 1.0
 margin_top = -239.0
 margin_right = 361.0
@@ -216,6 +215,7 @@ margin_right = 163.0
 margin_bottom = 35.0
 text = "CODE & SFX
 tehsquidge"
+align = 1
 
 [node name="Label3" type="Label" parent="Credits/CenterContainer/HBoxContainer"]
 margin_left = 195.0
@@ -223,6 +223,7 @@ margin_right = 283.0
 margin_bottom = 35.0
 text = "CODE & MUSIC
 thechae"
+align = 1
 
 [node name="MainMenu" type="Control" parent="."]
 margin_right = 360.0
