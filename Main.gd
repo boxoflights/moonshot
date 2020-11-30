@@ -36,6 +36,7 @@ func _process(delta):
 			$HUD.set_fire_percent($Player.get_fire_percent())
 			$HUD.set_health_percent($Player.get_health_percent())
 			$HUD.set_current_lives($Player.lives)
+			$HUD.set_has_item($Player.has_item)
 
 
 func game_over():
