@@ -12,15 +12,14 @@ var menu_change_sfx = load("res://SFX/menuChange.wav")
 
 var init = false
 
-var ident_time = 2.5
+var ident_time = 2
 
 var dont_play_menu_change_sound = false
 
 func _ready():
 	set_view(views.IDENT)
 	SoundManager._apply_audio_settings()
-	if(!SoundManager.is_music_playing()):
-		SoundManager.play_music(music)
+	
 	$OptionsMenu/Buttons/Master/HSlider.value = SettingsManager.get_setting("master")
 	$OptionsMenu/Buttons/Music/HSlider.value = SettingsManager.get_setting("music")
 	$OptionsMenu/Buttons/SFX/HSlider.value = SettingsManager.get_setting("sfx")
@@ -36,7 +35,11 @@ func _process(delta):
 		ident_time -= delta
 		if ident_time <= 0:
 			set_view(views.MAINMENU)
+			if(!SoundManager.is_music_playing()):
+				SoundManager.play_music(music)
 			init = true
+	var comet = get_node("ParallaxBackground").get_node("ParallaxLayer2").get_node("Comet")		
+	comet.position += Vector2(-150, 98).normalized() * (delta * 10)
 
 func set_view(new_view):
 	match new_view:

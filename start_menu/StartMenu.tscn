@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://ui/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/avenixel-regular.tres" type="DynamicFontData" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://paralax.midground.png" type="Texture" id=6]
 [ext_resource path="res://start_menu/StartMenu.gd" type="Script" id=7]
 [ext_resource path="res://bofl-logo.png" type="Texture" id=8]
+[ext_resource path="res://object.rocket.png" type="Texture" id=9]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.172515, 0.30117, 0.385965, 1 )
+colors = PoolColorArray( 0.821777, 0.118835, 0.0385208, 1, 0.917502, 0.503022, 0.189496, 1, 0.912696, 0.672694, 0.142283, 1, 0.908691, 0.846529, 0.102938, 1, 1, 1, 1, 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -54,6 +59,27 @@ texture = ExtResource( 3 )
 position = Vector2( 184, 120 )
 motion_scale = Vector2( 0.2, 0.25 )
 motion_mirroring = Vector2( 720, 0 )
+
+[node name="Comet" type="CPUParticles2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 216, -159 )
+amount = 256
+lifetime = 0.75
+speed_scale = 0.25
+randomness = 0.15
+lifetime_randomness = 0.35
+emission_shape = 1
+emission_sphere_radius = 2.5
+gravity = Vector2( 150, -98 )
+color_ramp = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2/Comet"]
+show_behind_parent = true
+position = Vector2( 1, -1 )
+rotation = -2.13977
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 96, 128 )
 
 [node name="paralaxmountains" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2( 176, 6 )
