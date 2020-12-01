@@ -79,29 +79,6 @@ position = Vector2( 4144, 225 )
 [node name="Pickup3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 4484, 114 )
 
-[node name="Player" parent="." groups=[
-"player",
-] instance=ExtResource( 6 )]
-position = Vector2( 109, 178 )
-Lazer = ExtResource( 7 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( -112, -176 )
-anchor_mode = 0
-current = true
-zoom = Vector2( 0.5, 0.5 )
-limit_left = 0
-limit_top = 0
-limit_bottom = 120
-limit_smoothed = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-drag_margin_top = 1.0
-drag_margin_bottom = 1.0
-script = ExtResource( 5 )
-speed = 32
-
 [node name="Spawns" type="Node" parent="."]
 
 [node name="Screen_2" type="Area2D" parent="Spawns"]
@@ -689,9 +666,34 @@ position = Vector2( 5092, 96 )
 
 [node name="Layer_6" type="Node" parent="Spawns/Screen_15"]
 
+[node name="Player" parent="." groups=[
+"player",
+] instance=ExtResource( 6 )]
+position = Vector2( 108, 182 )
+Lazer = ExtResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( -112, -176 )
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_left = 0
+limit_top = 0
+limit_bottom = 120
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_top = 1.0
+drag_margin_bottom = 1.0
+script = ExtResource( 5 )
+speed = 32
+
 [node name="HUD" parent="." instance=ExtResource( 12 )]
 [connection signal="game_win" from="Rocket" to="HUD" method="game_win"]
-[connection signal="gameover" from="Player" to="HUD" method="game_over"]
+[connection signal="cannot_pickup" from="Pickup" to="HUD" method="cannot_pickup"]
+[connection signal="cannot_pickup" from="Pickup2" to="HUD" method="cannot_pickup"]
+[connection signal="cannot_pickup" from="Pickup3" to="HUD" method="cannot_pickup"]
 [connection signal="body_entered" from="Spawns/Screen_2" to="Spawns/Screen_2" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_3" to="Spawns/Screen_3" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_4" to="Spawns/Screen_4" method="_on_Screen_body_entered"]
@@ -706,3 +708,4 @@ position = Vector2( 5092, 96 )
 [connection signal="body_entered" from="Spawns/Screen_13" to="Spawns/Screen_13" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_14" to="Spawns/Screen_14" method="_on_Screen_body_entered"]
 [connection signal="body_entered" from="Spawns/Screen_15" to="Spawns/Screen_15" method="_on_Screen_body_entered"]
+[connection signal="gameover" from="Player" to="HUD" method="game_over"]
