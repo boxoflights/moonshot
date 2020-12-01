@@ -38,6 +38,3 @@ func _process(delta):
 			$HUD.set_current_lives($Player.lives)
 			$HUD.set_has_item($Player.has_item)
 
-
-func game_over():
-	pass # Replace with function body.

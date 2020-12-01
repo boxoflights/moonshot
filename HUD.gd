@@ -35,7 +35,7 @@ func game_over():
 	$Theme/EndGame.show()
 	
 func game_win():
-	$Theme/EndGame/Title.text = "YOU WIN!"
+	$Theme/EndGame/Title.text = "YOU ESCAPED!"
 	$Theme/EndGame.show()
 
 
