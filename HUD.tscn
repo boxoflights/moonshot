@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://ui/ui.progress.frame.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://ui/ui.button.progress.bar.health.png" type="Texture" id=5]
 [ext_resource path="res://ui/avenixel-regular.tres" type="DynamicFontData" id=6]
 [ext_resource path="res://ui.repairkit.png" type="Texture" id=7]
+[ext_resource path="res://ui/ui.arrow.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://ui/Avenixel-Regular.ttf"
@@ -212,6 +213,53 @@ margin_bottom = 260.0
 mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 3 )
 text = "BACK TO MENU"
+
+[node name="GoBack" type="Control" parent="Theme"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="uiarrow" type="Sprite" parent="Theme/GoBack"]
+position = Vector2( 32, 224 )
+rotation = -3.14159
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="Theme/GoBack"]
+margin_left = 24.0
+margin_top = 208.0
+margin_right = 88.0
+margin_bottom = 240.0
+text = "GO!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Theme/GoBack"]
+
+[node name="InstructionPanel" type="Panel" parent="Theme"]
+margin_left = 168.0
+margin_top = 384.0
+margin_right = 552.0
+margin_bottom = 432.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Theme/InstructionPanel"]
+margin_right = 384.0
+margin_bottom = 48.0
+text = "I should return this to the rocket"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Theme/InstructionPanel"]
 
 [node name="uirepairkit" type="Sprite" parent="."]
 position = Vector2( 690, 30 )

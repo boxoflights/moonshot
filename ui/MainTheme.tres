@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=13 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
 
 [ext_resource path="res://ui/avenixel-regular.tres" type="DynamicFontData" id=1]
 [ext_resource path="res://ui/ui.button.png" type="Texture" id=2]
 [ext_resource path="res://ui/ui.button.hover.png" type="Texture" id=3]
 [ext_resource path="res://ui/ui.slider.frame.png" type="Texture" id=4]
 [ext_resource path="res://ui/ui.slider.frame.highlight.png" type="Texture" id=5]
+[ext_resource path="res://ui/ui.panel.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -51,6 +52,14 @@ outline_size = 1
 outline_color = Color( 0.0823529, 0.113725, 0.156863, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 6 )
+region_rect = Rect2( 1, 1, 22, 22 )
+margin_left = 1.54215
+margin_right = 1.54215
+margin_top = 1.67066
+margin_bottom = 1.54215
+
 [resource]
 Button/colors/font_color = Color( 0.823529, 0.415686, 0.619608, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
@@ -79,3 +88,4 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = SubResource( 7 )
 Label/styles/normal = null
+Panel/styles/panel = SubResource( 8 )

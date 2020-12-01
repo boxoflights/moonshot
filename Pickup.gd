@@ -1,5 +1,7 @@
 extends Area2D
 
+signal cannot_pickup
+
 var sfx = load("res://SFX/pickup-noise.wav")
 
 func _on_Pickup_body_entered(body):
@@ -10,3 +12,5 @@ func _on_Pickup_body_entered(body):
 			owner.respawn()
 			SoundManager.play_sfx(sfx)
 			queue_free()
+		else:
+			emit_signal("cannot_pickup")
