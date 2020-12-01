@@ -100,6 +100,6 @@ color_ramp = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 12 )
-frame = 6
+frame = 4
 playing = true
 [connection signal="body_entered" from="." to="." method="_on_Pickup_body_entered"]
